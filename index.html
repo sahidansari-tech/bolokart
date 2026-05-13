@@ -1,796 +1,788 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>BoloKart — Ab Gumani ke har gaon, har ghar tak</title>
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"rel="stylesheet" />
-        <link href="./assets/css/style.css" rel="stylesheet" />
-        <link rel="icon" href="./assets/icons/app-icon.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BoloKart — Ab Gumani ke har gaon, har ghar tak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link href="./assets/css/style.css" rel="stylesheet" />
 </head>
-
 <body>
-        <!-- LOADING SCREEN -->
-        <div id="loader">
-                <div class="loader-logo">Bolo<span>Kart</span><em>.</em></div>
-                <div class="loader-bar">
-                        <div class="loader-fill"></div>
-                </div>
-                <div class="loader-tag">Hyperlocal · Quick Commerce</div>
+
+<!-- ══ ANNOUNCEMENT BAR ══ -->
+<div class="announce-bar" id="announceBar">
+  <div class="announce-inner">
+    <div class="announce-left">
+      <span>🎁</span>
+      <span>Flat 20% Off on Your First Order – Use Code: <strong>BKC20</strong></span>
+    </div>
+    <div class="announce-timer">
+      <span class="timer-label">⚡ Offer ends in:</span>
+      <div class="timer-blocks">
+        <span class="tb" id="th">02</span><em>h</em>
+        <span class="tb" id="tm">45</span><em>m</em>
+        <span class="tb" id="ts">30</span><em>s</em>
+      </div>
+    </div>
+    <div class="announce-right">
+      <a href="#app">📱 Download App</a>
+      <a href="#vendor">🏪 Become a Vendor</a>
+      <a href="#rider">🛵 Partner With Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#16A34A"/><path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="23" r="4" fill="#FF8A00"/></svg>
+      </div>
+      <span class="logo-text">Bolo<em>Kart</em></span>
+    </a>
+
+    <div class="nav-location" id="navLocation">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div class="loc-text">
+        <span class="loc-label">Deliver to</span>
+        <span class="loc-place">Gumani, Jharkhand <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#how" class="nav-link">How It Works</a>
+      <a href="#categories" class="nav-link">Categories</a>
+      <a href="#ai" class="nav-link">AI Features</a>
+      <a href="#vendor" class="nav-link">For Vendors</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <div class="nav-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search groceries, products..." id="searchInput"/>
+    </div>
+
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn" onclick="openCart()">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">3</span>
+      </button>
+      <button class="login-btn" id="loginBtn" onclick="openModal('loginModal')">Login / Signup</button>
+    </div>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#how">How It Works</a>
+    <a href="#ai">AI Features</a>
+    <a href="#vendor">For Vendors</a>
+    <a href="#rider">For Riders</a>
+    <a href="#app">Download App</a>
+    <button class="btn-primary" onclick="openModal('loginModal')">Login / Signup</button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+  <div class="hero-blobs">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        India's Most Trusted Hyperlocal Delivery
+      </div>
+
+      <h1 class="hero-title">
+        Quick Grocery<br/>
+        Delivery in <span class="ht-green">10 Minutes</span> <span class="ht-bolt">⚡</span>
+      </h1>
+
+      <p class="hero-sub">Fresh groceries, daily essentials &amp; more delivered fast at your doorstep. Order via WhatsApp in Hindi — no app needed!</p>
+
+      <div class="hero-pills">
+        <div class="hero-pill">
+          <span>⏱</span>
+          <div><strong>10 Min Delivery</strong><small>Lightning fast</small></div>
         </div>
-        <!-- ANNOUNCEMENT BAR -->
-        <div class="announcement-bar">
-                🎉 <strong>Launch Offer:</strong> Free delivery on first 3 orders! Use code <strong>BOLO100</strong> ·  
-                📍 Now live in Gumani, Sahibganj, Jharkhand
+        <div class="hero-pill">
+          <span>💰</span>
+          <div><strong>Best Prices</strong><small>Lowest guarantee</small></div>
         </div>
-        <!-- NAVBAR -->
-        <nav id="navbar">
-                <div class="nav-inner">
-                        <a class="nav-logo" href="#">
-                                <img src="./assets/images/logo.png" alt="BoloKart Logo">
-                        </a>
-                        <div class="nav-location">
-                                <span class="pin-icon">📍</span>
-                                <div class="nav-location-text">
-                                        <div class="nav-location-label">Deliver to</div>
-                                        <div class="nav-location-value">Gumani, Sahibganj</div>
-                                </div>
-                                <span class="nav-location-chevron">▼</span>
-                        </div>
-                        <div class="nav-search-wrap">
-                                <span class="search-icon-left">🔍</span>
-                                <input autocomplete="off" class="nav-search" id="searchInput"
-                                        placeholder='Search "atta", "milk", "snacks"...' type="text" />
-                                <button class="search-icon-right">→</button>
-                                <div class="search-dropdown" id="searchDropdown">
-                                        <div class="search-section-label">🔥 Trending Now</div>
-                                        <div class="search-item" onclick="selectSearch('Amul Butter')"><span
-                                                        class="search-item-icon">🧈</span> Amul Butter<span
-                                                        class="search-item-tag">HOT</span></div>
-                                        <div class="search-item" onclick="selectSearch('Britannia Bread')"><span
-                                                        class="search-item-icon">🍞</span> Britannia Bread</div>
-                                        <div class="search-item" onclick="selectSearch('Tata Salt')"><span
-                                                        class="search-item-icon">🧂</span> Tata Salt<span
-                                                        class="search-item-tag">OFFER</span></div>
-                                        <div class="search-item" onclick="selectSearch('Parle-G Biscuits')"><span
-                                                        class="search-item-icon">🍪</span> Parle-G Biscuits</div>
-                                        <div class="search-section-label">⏱ Recent Searches</div>
-                                        <div class="search-item" onclick="selectSearch('Aashirvaad Atta')"><span
-                                                        class="search-item-icon">🌾</span> Aashirvaad Atta 5kg</div>
-                                        <div class="search-item" onclick="selectSearch('Maggi Noodles')"><span
-                                                        class="search-item-icon">🍜</span> Maggi Noodles Pack</div>
-                                </div>
-                        </div>
-                        <div class="nav-actions">
-                                <button class="btn-nav-login">👤 Login</button>
-                                <button class="btn-nav-cart" id="cartBtn">
-                                        🛒 Cart
-                                        <span class="cart-badge" id="cartBadge">0</span>
-                                </button>
-                        </div>
-                        <button class="nav-mobile-menu" id="mobileMenuBtn">☰</button>
-                </div>
-        </nav>
-        <!-- HERO -->
-        <section class="hero">
-
-                <div class="hero-noise"></div>
-                <div class="hero-grid-pattern"></div>
-
-                <div class="hero-glow hero-glow-1"></div>
-                <div class="hero-glow hero-glow-2"></div>
-
-                <div class="hero-inner">
-
-                        <!-- LEFT -->
-                        <div class="hero-content">
-
-                                <div class="hero-badge">
-                                        <span class="hero-badge-dot"></span>
-                                        Now Delivering Across Gumani & Nearby Villages
-                                </div>
-
-                                <h1 class="hero-headline">
-                                        Ab Gumani ke<br>
-                                        <span class="green-text">har gaon,</span><br>
-                                        <span class="orange-text">har ghar tak</span>
-                                </h1>
-
-                                <p class="hero-sub">
-                                        Groceries, snacks, dairy, sweets and essentials delivered in
-                                        <strong>15–20 minutes</strong>.
-                                        Rural India ke liye built kiya gaya modern quick-commerce platform.
-                                </p>
-
-                                <div class="hero-btns">
-
-                                        <button class="btn-hero-primary" onclick="scrollToProducts()">
-                                                ⚡ Start Ordering
-                                        </button>
-
-                                        <button class="btn-hero-secondary" onclick="scrollToEco()">
-                                                🤝 Become Partner
-                                        </button>
-
-                                </div>
-
-                                <div class="hero-trust-row">
-
-                                        <div class="trust-pill">
-                                                ⭐ 4.9 Rating
-                                        </div>
-
-                                        <div class="trust-pill">
-                                                ⚡ Fast Delivery
-                                        </div>
-
-                                        <div class="trust-pill">
-                                                🛡 Secure Payments
-                                        </div>
-
-                                </div>
-
-                                <div class="hero-stats">
-
-                                        <div class="hero-stat-item">
-                                                <div class="hero-stat-num">20<span>+</span></div>
-                                                <div class="hero-stat-label">Villages Covered</div>
-                                        </div>
-
-                                        <div class="hero-stat-item">
-                                                <div class="hero-stat-num">500<span>+</span></div>
-                                                <div class="hero-stat-label">Happy Customers</div>
-                                        </div>
-
-                                        <div class="hero-stat-item">
-                                                <div class="hero-stat-num">15<span>–20</span></div>
-                                                <div class="hero-stat-label">Min Delivery</div>
-                                        </div>
-
-                                        <div class="hero-stat-item">
-                                                <div class="hero-stat-num">800<span>+</span></div>
-                                                <div class="hero-stat-label">Products</div>
-                                        </div>
-
-                                </div>
-
-                        </div>
-
-                        <!-- RIGHT -->
-                        <div class="hero-visual">
-
-                                <div class="hero-dashboard">
-
-                                        <div class="dashboard-top">
-
-                                                <div class="dashboard-live">
-                                                        <span class="live-dot"></span>
-                                                        LIVE ORDERS ACTIVE
-                                                </div>
-
-                                                <div class="dashboard-time">
-                                                        ⚡ 15–20 min
-                                                </div>
-
-                                        </div>
-
-                                        <div class="dashboard-products">
-
-                                                <div class="dashboard-product">
-                                                        <div class="dp-icon">🥛</div>
-                                                        <div class="dp-name">Amul Milk</div>
-                                                        <div class="dp-price">₹28</div>
-                                                </div>
-
-                                                <div class="dashboard-product">
-                                                        <div class="dp-icon">🍞</div>
-                                                        <div class="dp-name">Bread</div>
-                                                        <div class="dp-price">₹35</div>
-                                                </div>
-
-                                                <div class="dashboard-product">
-                                                        <div class="dp-icon">🧈</div>
-                                                        <div class="dp-name">Butter</div>
-                                                        <div class="dp-price">₹54</div>
-                                                </div>
-
-                                        </div>
-
-                                        <div class="dashboard-order-card">
-
-                                                <div class="doc-top">
-                                                        <span>🛵 Rider Assigned</span>
-                                                        <span class="doc-status">LIVE</span>
-                                                </div>
-
-                                                <div class="doc-user">
-                                                        Delivering to Gumani Village
-                                                </div>
-
-                                                <div class="doc-progress">
-                                                        <div class="doc-progress-fill"></div>
-                                                </div>
-
-                                        </div>
-
-                                </div>
-
-                                <!-- FLOATING -->
-                                <div class="hero-floating-card floating-1">
-                                        ⭐ 4.9/5 Rating
-                                </div>
-
-                                <div class="hero-floating-card floating-2">
-                                        🎉 ₹234 Saved Today
-                                </div>
-
-                                <div class="hero-floating-card floating-3">
-                                        ⚡ AI Powered Commerce
-                                </div>
-
-                        </div>
-
-                </div>
-
-        </section>
-        <!-- CATEGORIES -->
-        <div class="section reveal">
-                <div class="section-header">
-                        <div>
-                                <div class="section-title">Shop by <span>Category</span></div>
-                                <div class="section-sub">10+ categories, 800+ products</div>
-                        </div>
-                        <button class="view-all">See All →</button>
-                </div>
-                <div class="categories-scroll">
-                        <div class="category-card" onclick="filterCategory('Grocery')">
-                                <span class="cat-icon">🌾</span>
-                                <div class="cat-name">Grocery</div>
-                                <div class="cat-count">120+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Snacks')">
-                                <span class="cat-icon">🍪</span>
-                                <div class="cat-name">Snacks</div>
-                                <div class="cat-count">80+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Dairy')">
-                                <span class="cat-icon">🥛</span>
-                                <div class="cat-name">Dairy</div>
-                                <div class="cat-count">45+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Fruits')">
-                                <span class="cat-icon">🍎</span>
-                                <div class="cat-name">Fruits</div>
-                                <div class="cat-count">30+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Vegetables')">
-                                <span class="cat-icon">🥦</span>
-                                <div class="cat-name">Vegetables</div>
-                                <div class="cat-count">55+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Beverages')">
-                                <span class="cat-icon">🥤</span>
-                                <div class="cat-name">Cold Drinks</div>
-                                <div class="cat-count">40+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Bakery')">
-                                <span class="cat-icon">🍞</span>
-                                <div class="cat-name">Bakery</div>
-                                <div class="cat-count">25+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Sweets')">
-                                <span class="cat-icon">🍬</span>
-                                <div class="cat-name">Sweets</div>
-                                <div class="cat-count">35+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Household')">
-                                <span class="cat-icon">🏠</span>
-                                <div class="cat-name">Household</div>
-                                <div class="cat-count">70+ items</div>
-                        </div>
-                        <div class="category-card" onclick="filterCategory('Personal Care')">
-                                <span class="cat-icon">🧴</span>
-                                <div class="cat-name">Personal Care</div>
-                                <div class="cat-count">90+ items</div>
-                        </div>
-                </div>
+        <div class="hero-pill">
+          <span>🛡</span>
+          <div><strong>100% Secure</strong><small>Safe payments</small></div>
         </div>
-        <!-- OFFER BANNERS -->
-        <div class="offer-banners reveal">
-                <div class="offer-banner ob1">
-                        <span class="ob-emoji">🌾</span>
-                        <div class="ob-tag">DAILY ESSENTIALS</div>
-                        <div class="ob-title">Fresh Atta &amp; Rice Daily</div>
-                        <div class="ob-sub">Best quality grains, direct from mandis</div>
-                </div>
-                <div class="offer-banner ob2">
-                        <span class="ob-emoji">🎤</span>
-                        <div class="ob-tag">AI-POWERED</div>
-                        <div class="ob-title">Order by Voice in Hindi</div>
-                        <div class="ob-sub">"Doodh, anda aur atta mangao" — AI samajhta hai</div>
-                </div>
-                <div class="offer-banner ob3">
-                        <span class="ob-emoji">🛵</span>
-                        <div class="ob-tag">LIGHTNING FAST</div>
-                        <div class="ob-title">15–20 Min Guaranteed</div>
-                        <div class="ob-sub">3 dark stores across Zone A, B &amp; C</div>
-                </div>
-        </div>
-        <!-- PRODUCTS SECTION -->
-        <div class="section reveal" id="productsSection">
-                <div class="section-header">
-                        <div>
-                                <div class="section-title">🔥 Trending <span>Products</span></div>
-                                <div class="section-sub">Sabse zyada order hone wale items</div>
-                        </div>
-                        <button class="view-all">See All →</button>
-                </div>
-                <div class="section-tabs">
-                        <button class="tab-btn active" onclick="switchTab(this,'trending')">🔥 Trending</button>
-                        <button class="tab-btn" onclick="switchTab(this,'bestsellers')">⭐ Best Sellers</button>
-                        <button class="tab-btn" onclick="switchTab(this,'essentials')">🏠 Daily Essentials</button>
-                        <button class="tab-btn" onclick="switchTab(this,'fresh')">🌿 Fresh Arrivals</button>
-                        <button class="tab-btn" onclick="switchTab(this,'deals')">💰 Best Deals</button>
-                </div>
-                <div class="product-grid" id="productGrid"></div>
-        </div>
-        <!-- ECOSYSTEM SECTION -->
-        <section class="ecosystem-section reveal" id="ecoSection">
-                <div class="ecosystem-inner">
-                        <div class="eco-header">
-                                <div class="eco-title">The <span>BoloKart</span> Ecosystem</div>
-                                <div class="eco-sub">Ek platform, teen powerful apps — customers, partners, aur riders
-                                        sabke liye</div>
-                        </div>
-                        <div class="eco-apps">
-                                <div class="eco-app-card">
-                                        <div class="eco-app-icon">📱</div>
-                                        <div class="eco-app-name">BoloKart</div>
-                                        <div class="eco-app-for">For Customers</div>
-                                        <div class="eco-app-desc">Seamless grocery ordering with voice support, AI
-                                                recommendations, and real-time tracking — in Hindi &amp; local
-                                                languages.</div>
-                                        <div class="eco-app-features">
-                                                <div class="eco-feature-item">WhatsApp-based voice ordering</div>
-                                                <div class="eco-feature-item">15–20 min guaranteed delivery</div>
-                                                <div class="eco-feature-item">COD + UPI payments</div>
-                                                <div class="eco-feature-item">AI-powered smart suggestions</div>
-                                        </div>
-                                        <button class="btn-eco">Download App →</button>
-                                </div>
-                                <div class="eco-app-card">
-                                        <div class="eco-app-icon">🏪</div>
-                                        <div class="eco-app-name">BoloKart Partner</div>
-                                        <div class="eco-app-for">For Shop Owners</div>
-                                        <div class="eco-app-desc">List your products, manage inventory, get orders
-                                                directly from nearby customers. Grow your village shop digitally.</div>
-                                        <div class="eco-app-features">
-                                                <div class="eco-feature-item">Easy product listing dashboard</div>
-                                                <div class="eco-feature-item">Daily payout system</div>
-                                                <div class="eco-feature-item">Demand prediction AI</div>
-                                                <div class="eco-feature-item">WhatsApp order notifications</div>
-                                        </div>
-                                        <button class="btn-eco">Become a Partner →</button>
-                                </div>
-                                <div class="eco-app-card">
-                                        <div class="eco-app-icon">🛵</div>
-                                        <div class="eco-app-name">BoloKart Rider</div>
-                                        <div class="eco-app-for">For Delivery Boys</div>
-                                        <div class="eco-app-desc">Earn on your schedule. Accept orders from your
-                                                village, deliver fast, and get paid daily with performance bonuses.
-                                        </div>
-                                        <div class="eco-app-features">
-                                                <div class="eco-feature-item">Flexible hours, daily earning</div>
-                                                <div class="eco-feature-item">Route optimization AI</div>
-                                                <div class="eco-feature-item">Instant payment on delivery</div>
-                                                <div class="eco-feature-item">Performance bonuses &amp; tips</div>
-                                        </div>
-                                        <button class="btn-eco">Join as Rider →</button>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <!-- AI FEATURES -->
-        <section class="ai-section reveal">
-                <div class="ai-inner">
-                        <div class="ai-header">
-                                <div class="ai-tag">🤖 Powered by AI</div>
-                                <div class="ai-title">Technology jo <span>gaon ko samjhe</span></div>
-                                <div class="ai-sub">Advanced AI built specifically for rural India — vernacular,
-                                        voice-first, offline-resilient</div>
-                        </div>
-                        <div class="ai-grid">
-                                <div class="ai-card">
-                                        <div class="ai-card-icon">🎤</div>
-                                        <div class="ai-card-name">Voice Ordering</div>
-                                        <div class="ai-card-desc">WhatsApp pe voice message bhejo — "Ek kilo atta, do
-                                                litre doodh aur biscuit mangao". AI instantly samjhega aur order place
-                                                kar dega.</div>
-                                        <div class="ai-card-tag">Hindi + Local Language</div>
-                                </div>
-                                <div class="ai-card">
-                                        <div class="ai-card-icon">✨</div>
-                                        <div class="ai-card-name">AI Recommendations</div>
-                                        <div class="ai-card-desc">Your order history, local festivals, and season-based
-                                                suggestions automatically appear. Holi pe rang, Diwali pe mithai — AI
-                                                pehle se suggest karega.</div>
-                                        <div class="ai-card-tag">Personalized for you</div>
-                                </div>
-                                <div class="ai-card">
-                                        <div class="ai-card-icon">🔄</div>
-                                        <div class="ai-card-name">Smart Substitutions</div>
-                                        <div class="ai-card-desc">Agar koi item stock out ho, AI automatically best
-                                                substitute dhundh ke suggest karta hai — same quality, same price range.
-                                        </div>
-                                        <div class="ai-card-tag">Never out of stock</div>
-                                </div>
-                                <div class="ai-card">
-                                        <div class="ai-card-icon">🗣️</div>
-                                        <div class="ai-card-name">Local Language AI</div>
-                                        <div class="ai-card-desc">Santali, Nagpuri, Bhojpuri, Hindi — BoloKart AI aapki
-                                                apni bhasha samjhta hai. No English required, ever.</div>
-                                        <div class="ai-card-tag">6+ Languages</div>
-                                </div>
-                                <div class="ai-card">
-                                        <div class="ai-card-icon">🗺️</div>
-                                        <div class="ai-card-name">Smart Delivery Routes</div>
-                                        <div class="ai-card-desc">AI dynamically calculates optimal delivery routes
-                                                across villages, minimizing time and maximizing rider efficiency —
-                                                especially on kutcha roads.</div>
-                                        <div class="ai-card-tag">Kaccha rasta compatible</div>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <!-- TESTIMONIALS -->
-        <section class="testimonials-section reveal">
-                <div class="testimonials-inner">
-                        <div class="section-header">
-                                <div>
-                                        <div class="section-title">Log kya kehte <span>hain</span></div>
-                                        <div class="section-sub">Real stories from our Gumani community</div>
-                                </div>
-                        </div>
-                        <div class="testimonials-grid">
-                                <div class="testimonial-card">
-                                        <span class="tc-badge verified">✓ Verified User</span>
-                                        <div class="tc-quote-icon">"</div>
-                                        <div class="tc-text">Pehle hum 8 km door market jaate the grocery ke liye. Ab
-                                                ghar pe seedha aata hai 15 minute mein. BoloKart ne zindagi asaan kar
-                                                di!</div>
-                                        <div class="tc-author">
-                                                <div class="tc-avatar">👩</div>
-                                                <div>
-                                                        <div class="tc-name">Sunita Devi</div>
-                                                        <div class="tc-role">Housewife, Gumani Village</div>
-                                                        <div class="tc-stars">★★★★★</div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="testimonial-card">
-                                        <span class="tc-badge verified">✓ Verified User</span>
-                                        <div class="tc-quote-icon">"</div>
-                                        <div class="tc-text">Voice se order karna bahut easy hai. Main Hindi mein bolke
-                                                order karta hoon, sab aajata hai bilkul sahi. Technology ka kamaal!
-                                        </div>
-                                        <div class="tc-author">
-                                                <div class="tc-avatar">👦</div>
-                                                <div>
-                                                        <div class="tc-name">Rahul Kumar</div>
-                                                        <div class="tc-role">Student, Class 12th</div>
-                                                        <div class="tc-stars">★★★★★</div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="testimonial-card">
-                                        <span class="tc-badge verified">✓ Partner Shop</span>
-                                        <div class="tc-quote-icon">"</div>
-                                        <div class="tc-text">Mere shop ki sales 3x ho gayi BoloKart join karne ke baad.
-                                                Ab poore zone ke customers mujhse order karte hain. Digital dukaan sach
-                                                mein fayda karta hai.</div>
-                                        <div class="tc-author">
-                                                <div class="tc-avatar">🧔</div>
-                                                <div>
-                                                        <div class="tc-name">Ramesh Sahu</div>
-                                                        <div class="tc-role">Kirana Shop Owner, Srikund</div>
-                                                        <div class="tc-stars">★★★★★</div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="testimonial-card">
-                                        <span class="tc-badge verified">✓ Rider Partner</span>
-                                        <div class="tc-quote-icon">"</div>
-                                        <div class="tc-text">Roz 400-500 rupaye kamaata hoon delivery se. Apne hi gaon
-                                                mein kaam, koi sheher jaana nahi parta. BoloKart ne local employment
-                                                diya.</div>
-                                        <div class="tc-author">
-                                                <div class="tc-avatar">🛵</div>
-                                                <div>
-                                                        <div class="tc-name">Aakash Mahato</div>
-                                                        <div class="tc-role">Delivery Rider, Zone B</div>
-                                                        <div class="tc-stars">★★★★★</div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <!-- APP DOWNLOAD -->
-        <section class="app-section">
-                <div class="app-inner">
-                        <div class="app-content">
-                                <div class="app-title">App Download Karein &amp; Pehla Order Free!</div>
-                                <div class="app-sub">Pura gaon, puri kirana list — ab ek tap mein. Voice mein bolke
-                                        order karo, 15 minute mein ghar pe aayega.</div>
-                                <div class="app-btns">
-                                        <a class="app-store-btn" href="#">
-                                                <span class="asb-icon">▶</span>
-                                                <div>
-                                                        <div class="asb-label">Get it on</div>
-                                                        <div class="asb-store">Google Play</div>
-                                                </div>
-                                        </a>
-                                        <a class="app-store-btn" href="#">
-                                                <span class="asb-icon">🍎</span>
-                                                <div>
-                                                        <div class="asb-label">Download on the</div>
-                                                        <div class="asb-store">App Store</div>
-                                                </div>
-                                        </a>
-                                </div>
-                                <div class="app-qr-wrap">
-                                        <div class="qr-code">
-                                                <div style="font-size:2rem">📱</div>
-                                                QR Code
-                                        </div>
-                                        <div class="qr-text">
-                                                <strong>Scan to Download</strong>
-                                                Coming soon on Android &amp; iOS
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="app-visual">
-                                <div class="phone-mockup">
-                                        <div class="phone-screen">
-                                                <div class="ps-header">
-                                                        <div class="ps-app-name">BoloKart 🛒</div>
-                                                        <div class="ps-sub-text">Gumani, Sahibganj</div>
-                                                </div>
-                                                <div class="ps-body">
-                                                        <div class="ps-search"><span>🔍</span> "Atta, doodh, anda..."
-                                                        </div>
-                                                        <div class="ps-mini-cats">
-                                                                <div class="pmc-item">🌾</div>
-                                                                <div class="pmc-item">🥛</div>
-                                                                <div class="pmc-item">🍪</div>
-                                                        </div>
-                                                        <div class="ps-mini-product">
-                                                                <span class="psmp-emoji">🌾</span>
-                                                                <div class="psmp-info">
-                                                                        <div class="psmp-name">Aashirvaad Atta 5kg</div>
-                                                                        <div class="psmp-price">₹245</div>
-                                                                </div>
-                                                                <button class="psmp-add">+ Add</button>
-                                                        </div>
-                                                        <div class="ps-mini-product">
-                                                                <span class="psmp-emoji">🥛</span>
-                                                                <div class="psmp-info">
-                                                                        <div class="psmp-name">Amul Doodh 1L</div>
-                                                                        <div class="psmp-price">₹28</div>
-                                                                </div>
-                                                                <button class="psmp-add">+ Add</button>
-                                                        </div>
-                                                        <div class="ps-mini-product">
-                                                                <span class="psmp-emoji">🥚</span>
-                                                                <div class="psmp-info">
-                                                                        <div class="psmp-name">Farm Fresh Eggs 12</div>
-                                                                        <div class="psmp-price">₹84</div>
-                                                                </div>
-                                                                <button class="psmp-add">+ Add</button>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <!-- FOOTER -->
-        <footer>
-                <div class="footer-inner">
-                        <div class="footer-top">
-                                <div>
-                                        <div class="footer-brand-logo">Bolo<span>K</span>art<em>.</em></div>
-                                        <div class="footer-tagline">Ab Gumani ke har gaon, har ghar tak.<br />Hyperlocal
-                                                quick-commerce for rural Jharkhand.</div>
-                                        <div class="footer-social">
-                                                <a class="social-icon" href="#">𝕏</a>
-                                                <a class="social-icon" href="#">in</a>
-                                                <a class="social-icon" href="#">f</a>
-                                                <a class="social-icon" href="#">📷</a>
-                                        </div>
-                                </div>
-                                <div>
-                                        <div class="footer-col-title">BoloKart</div>
-                                        <ul class="footer-links">
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">How it Works</a></li>
-                                                <li><a href="#">Our Mission</a></li>
-                                                <li><a href="#">Blog</a></li>
-                                                <li><a href="#">Press Kit</a></li>
-                                        </ul>
-                                </div>
-                                <div>
-                                        <div class="footer-col-title">For Partners</div>
-                                        <ul class="footer-links">
-                                                <li><a href="#">Become a Partner</a></li>
-                                                <li><a href="#">Join as Rider</a></li>
-                                                <li><a href="#">Dark Store Model</a></li>
-                                                <li><a href="#">Franchise</a></li>
-                                                <li><a href="#">Partner Portal</a></li>
-                                        </ul>
-                                </div>
-                                <div>
-                                        <div class="footer-col-title">Support</div>
-                                        <ul class="footer-links">
-                                                <li><a href="#">Help Center</a></li>
-                                                <li><a href="#">Track Order</a></li>
-                                                <li><a href="#">Returns Policy</a></li>
-                                                <li><a href="#">WhatsApp Support</a></li>
-                                                <li><a href="#">Contact Us</a></li>
-                                        </ul>
-                                        <div style="margin-top:20px">
-                                                <div
-                                                        style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:8px">
-                                                        Coverage Area</div>
-                                                <div style="font-size:0.82rem;color:rgba(255,255,255,0.6)">Gumani •
-                                                        Srikund • Kankjol<br />Islampur • +16 more
-                                                        villages<br />Sahibganj District, Jharkhand</div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="footer-bottom">
-                                <div class="footer-copy">© 2025 <span>BoloKart</span> · Built with ❤️ for Rural India ·
-                                        Sahibganj, Jharkhand</div>
-                                <div class="footer-legal">
-                                        <a href="#">Privacy Policy</a>
-                                        <a href="#">Terms of Use</a>
-                                        <a href="#">Cookie Policy</a>
-                                </div>
-                        </div>
-                </div>
-        </footer>
-        <!-- CART OVERLAY + SIDEBAR -->
-        <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-        <div class="cart-sidebar" id="cartSidebar">
-                <div class="cart-header">
-                        <div class="cart-title">🛒 Your Cart</div>
-                        <button class="cart-close" onclick="closeCart()">✕</button>
-                </div>
-                <div class="cart-delivery-info">
-                        <span class="delivery-icon">⚡</span>
-                        <span>Delivery in <strong>15–20 minutes</strong> to Gumani</span>
-                </div>
-                <div class="cart-items" id="cartItemsList">
-                        <div class="cart-empty" id="cartEmpty">
-                                <div class="cart-empty-icon">🛒</div>
-                                <div class="cart-empty-text">Cart khali hai!</div>
-                                <div class="cart-empty-sub">Kuch add karo na...</div>
-                        </div>
-                </div>
-                <div class="cart-footer">
-                        <div class="cart-coupon">
-                                <input id="couponInput" placeholder="Apply coupon code..." type="text" />
-                                <button class="btn-coupon" onclick="applyCoupon()">Apply</button>
-                        </div>
-                        <div class="cart-summary" id="cartSummary" style="display:none">
-                                <div class="cs-row"><span>Subtotal</span><span id="cs-subtotal">₹0</span></div>
-                                <div class="cs-row"><span>Delivery Fee</span><span class="green">FREE</span></div>
-                                <div class="cs-row"><span>Discount</span><span class="orange"
-                                                id="cs-discount">-₹0</span></div>
-                                <div class="cs-row total"><span>Total</span><span id="cs-total">₹0</span></div>
-                        </div>
-                        <button class="btn-checkout" id="checkoutBtn" onclick="openCheckout()"
-                                style="display:none">Proceed to Checkout →</button>
-                </div>
-        </div>
-        <!-- CHECKOUT MODAL -->
-        <div class="modal-overlay" id="checkoutModal">
-                <div class="modal">
-                        <div class="modal-header">
-                                <div class="modal-title">🧾 Checkout</div>
-                                <button class="cart-close" onclick="closeCheckout()">✕</button>
-                        </div>
-                        <div class="modal-body">
-                                <div class="checkout-section">
-                                        <div class="cs-title">📍 Delivery Address</div>
-                                        <div class="address-card">
-                                                <span class="address-icon">🏠</span>
-                                                <div class="address-info">
-                                                        <div class="address-type">Home · Gumani Village</div>
-                                                        <div class="address-text">Near Panchayat Bhawan,
-                                                                Gumani,<br />Sahibganj District, Jharkhand — 816109
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="checkout-section">
-                                        <div class="cs-title">💳 Payment Method</div>
-                                        <div class="payment-options">
-                                                <div class="payment-opt selected" onclick="selectPayment(this)">
-                                                        <span class="payment-opt-icon">💵</span>
-                                                        <div>
-                                                                <div class="payment-opt-name">Cash on Delivery</div>
-                                                                <div class="payment-opt-sub">Pay when delivered</div>
-                                                        </div>
-                                                </div>
-                                                <div class="payment-opt" onclick="selectPayment(this)">
-                                                        <span class="payment-opt-icon">📱</span>
-                                                        <div>
-                                                                <div class="payment-opt-name">UPI Payment</div>
-                                                                <div class="payment-opt-sub">PhonePe, GPay, Paytm</div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="checkout-section">
-                                        <div class="cs-title">📦 Order Summary</div>
-                                        <div class="order-summary-mini">
-                                                <div class="osm-row"><span>Items</span><span id="osm-items">0
-                                                                items</span></div>
-                                                <div class="osm-row"><span>Subtotal</span><span
-                                                                id="osm-subtotal">₹0</span></div>
-                                                <div class="osm-row"><span>Delivery</span><span
-                                                                style="color:var(--green);font-weight:600">FREE</span>
-                                                </div>
-                                                <div class="osm-row"><span>ETA</span><span
-                                                                style="color:var(--orange);font-weight:600">⚡ 15-20
-                                                                min</span></div>
-                                                <div class="osm-row total"><span>Total Payable</span><span
-                                                                id="osm-total">₹0</span></div>
-                                        </div>
-                                </div>
-                                <button class="btn-place-order" onclick="placeOrder()">🎉 Place Order →</button>
-                        </div>
-                </div>
-        </div>
-        <!-- ORDER SUCCESS -->
-        <div id="success-screen">
-                <div class="success-circle">🎉</div>
-                <div class="success-title">Order Place Ho Gaya!</div>
-                <div class="success-sub">Aapka order confirm ho gaya hai. Rider abhi निकल raha hai.</div>
-                <div class="success-order-id">Order ID: <span id="successOrderId">BK-051225-A-001</span></div>
-                <div class="tracking-steps">
-                        <div class="track-step">
-                                <div class="track-dot">✓</div>
-                                <div class="track-label">Confirmed</div>
-                        </div>
-                        <div class="track-line done"></div>
-                        <div class="track-step">
-                                <div class="track-dot active">🏪</div>
-                                <div class="track-label">Packing</div>
-                        </div>
-                        <div class="track-line"></div>
-                        <div class="track-step">
-                                <div class="track-dot pending">🛵</div>
-                                <div class="track-label">On the Way</div>
-                        </div>
-                        <div class="track-line"></div>
-                        <div class="track-step">
-                                <div class="track-dot pending">🏠</div>
-                                <div class="track-label">Delivered</div>
-                        </div>
-                </div>
-                <div style="display:flex;gap:12px;">
-                        <button class="btn-track-order" onclick="closeSuccess()">Continue Shopping</button>
-                </div>
-        </div>
-        <!-- TOAST CONTAINER -->
-        <div id="toast-container"></div>
+      </div>
 
-        <script src="./assets/js/app.js"></script>
+      <div class="hero-ctas">
+        <button class="btn-primary hero-btn" onclick="openCart()">
+          Shop Now <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-ghost hero-btn" onclick="window.open('https://wa.me/919876543210','_blank')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.899.525 3.674 1.441 5.193L2 22l4.95-1.427A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          WhatsApp Order
+        </button>
+      </div>
+
+      <div class="hero-social-proof">
+        <div class="social-avatars">
+          <div class="av" style="background:#16A34A">R</div>
+          <div class="av" style="background:#FF8A00">S</div>
+          <div class="av" style="background:#3B82F6">M</div>
+          <div class="av" style="background:#8B5CF6">P</div>
+        </div>
+        <div class="social-text">
+          <strong>5000+ Happy Customers</strong>
+          <span>across 20 villages in Jharkhand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <!-- Main illustration bg -->
+        <div class="hero-illus-bg"></div>
+
+        <!-- Delivery Boy SVG Illustration -->
+        <div class="delivery-boy-wrap">
+          <div class="delivery-boy-illus">
+            <!-- Head -->
+            <div class="db-head">
+              <div class="db-cap"></div>
+              <div class="db-face">
+                <div class="db-eyes"><span></span><span></span></div>
+                <div class="db-smile"></div>
+              </div>
+            </div>
+            <!-- Body -->
+            <div class="db-body">
+              <div class="db-shirt">
+                <span class="db-badge">B</span>
+              </div>
+              <div class="db-arm db-arm-l"></div>
+              <div class="db-arm db-arm-r"></div>
+            </div>
+            <!-- Basket -->
+            <div class="db-basket">
+              <div class="db-basket-inner">
+                <div class="db-basket-label">BoloKart</div>
+                <div class="db-basket-goods">🥦 🍅 🥕</div>
+              </div>
+            </div>
+            <!-- Legs -->
+            <div class="db-legs">
+              <div class="db-leg"></div>
+              <div class="db-leg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="phone-mockup-hero">
+          <div class="pmh-notch"></div>
+          <div class="pmh-screen">
+            <div class="pmh-header">
+              <span class="pmh-label">Delivery in</span>
+              <strong class="pmh-time">10 Minutes</strong>
+            </div>
+            <div class="pmh-items">
+              <div class="pmh-item">🥬 Fresh Vegetables</div>
+              <div class="pmh-item">🥛 Milk & Dairy</div>
+              <div class="pmh-item">🍿 Snacks & Drinks</div>
+              <div class="pmh-more">+ More Categories →</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="float-card fc-time">
+          <div class="fc-ico">⏱</div>
+          <div><strong>10 Min</strong><span>Fast Delivery</span></div>
+        </div>
+        <div class="float-card fc-rating">
+          <div class="fc-ico">⭐</div>
+          <div><strong>4.8</strong><span>App Rating</span></div>
+        </div>
+        <div class="float-card fc-ai">
+          <div class="fc-ico">🤖</div>
+          <div><strong>AI Voice</strong><span>Hindi Ordering</span></div>
+        </div>
+        <div class="float-card fc-villages">
+          <div class="fc-ico">🏘</div>
+          <div><strong>20 Villages</strong><span>Jharkhand</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAR ══ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><span class="stat-ico">👥</span><div><strong>50K+</strong><small>Happy Customers</small></div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-ico">🛵</span><div><strong>100+</strong><small>Daily Deliveries</small></div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-ico">🏪</span><div><strong>20+</strong><small>Local Stores</small></div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-ico">📍</span><div><strong>20+</strong><small>Villages</small></div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-ico">✅</span><div><strong>99.9%</strong><small>On-Time</small></div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-ico">💬</span><div><strong>24/7</strong><small>Support</small></div></div>
+  </div>
+</div>
+
+<!-- ══ CATEGORIES ══ -->
+<section class="section categories-section" id="categories">
+  <div class="section-wrap">
+    <div class="section-hdr">
+      <div>
+        <h2 class="section-ttl">Shop By Categories</h2>
+        <p class="section-sub">Browse our wide selection of fresh products</p>
+      </div>
+      <a class="view-all-btn" href="#">View All <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card" onclick="filterProducts('vegetables')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🥦🍅</div></div>
+        <span>Fruits &amp; Vegetables</span>
+        <small>120+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('dairy')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🥛🧀</div></div>
+        <span>Dairy &amp; Eggs</span>
+        <small>80+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('snacks')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🍿🍪</div></div>
+        <span>Snacks &amp; Branded Foods</span>
+        <small>150+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('beverages')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🧃🥤</div></div>
+        <span>Beverages</span>
+        <small>60+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('personal')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🧴🧼</div></div>
+        <span>Personal Care</span>
+        <small>100+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('household')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🧹🪣</div></div>
+        <span>Household Essentials</span>
+        <small>90+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('baby')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🍼👶</div></div>
+        <span>Baby Care</span>
+        <small>70+ Products</small>
+      </div>
+      <div class="cat-card" onclick="filterProducts('bakery')">
+        <div class="cat-img-box"><div class="cat-emoji-big">🍞🧁</div></div>
+        <span>Bakery &amp; Biscuits</span>
+        <small>85+ Products</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="section products-section" id="products">
+  <div class="section-wrap">
+    <div class="section-hdr">
+      <div>
+        <h2 class="section-ttl">Fresh Arrivals</h2>
+        <p class="section-sub">Handpicked products from local farms</p>
+      </div>
+      <div class="filter-tabs" id="filterTabs">
+        <button class="ftab active" data-filter="all">All</button>
+        <button class="ftab" data-filter="vegetables">Vegetables</button>
+        <button class="ftab" data-filter="dairy">Dairy</button>
+        <button class="ftab" data-filter="snacks">Snacks</button>
+        <button class="ftab" data-filter="beverages">Beverages</button>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="section how-section" id="how">
+  <div class="section-wrap">
+    <div class="section-hdr center">
+      <h2 class="section-ttl">How BoloKart Works</h2>
+      <p class="section-sub">Order in seconds. Delivered in minutes.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-ico">📱</div><h3>You Order</h3><p>WhatsApp pe text ya voice message bhejo — Hindi mein. Koi app nahi chahiye.</p><div class="step-arrow">→</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-ico">🤖</div><h3>AI Confirms</h3><p>Hamara AI agent turant aapka order confirm karta hai aur rider assign karta hai.</p><div class="step-arrow">→</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-ico">🛵</div><h3>We Deliver</h3><p>Nearest dark store se rider aapka order pick karta hai aur 10 minute mein deliver karta hai.</p><div class="step-arrow">→</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-ico">😊</div><h3>You Enjoy</h3><p>Fresh products doorstep pe. Cash on delivery. Simple, fast, reliable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AI FEATURES ══ -->
+<section class="section ai-section" id="ai">
+  <div class="section-wrap">
+    <div class="ai-layout">
+      <div class="ai-content">
+        <div class="eyebrow">🤖 AI-Powered Commerce</div>
+        <h2 class="section-ttl">India's First WhatsApp<br/>AI Voice Ordering System</h2>
+        <p class="ai-desc">BoloKart uses advanced Llama AI to process voice orders in Hindi from rural customers who may not be able to read or write — making grocery delivery truly accessible.</p>
+        <div class="ai-feats">
+          <div class="ai-feat"><div class="af-ico">🎙</div><div><strong>Voice Ordering in Hindi</strong><p>"Ek kilo aalu aur doh litre doodh bhejo" — AI samajhta hai</p></div></div>
+          <div class="ai-feat"><div class="af-ico">🧠</div><div><strong>Smart Cart Agent</strong><p>AI cart banata hai, total calculate karta hai, discount apply karta hai</p></div></div>
+          <div class="ai-feat"><div class="af-ico">📦</div><div><strong>Real-time Inventory</strong><p>20 villages ka live stock tracking — kabhi out of stock nahi</p></div></div>
+          <div class="ai-feat"><div class="af-ico">🗺</div><div><strong>Zone-Based Dispatch</strong><p>Nearest rider auto-assign hota hai zone routing se</p></div></div>
+        </div>
+        <button class="btn-primary" onclick="window.open('https://wa.me/919876543210','_blank')">
+          Try AI Ordering on WhatsApp <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="ai-visual-wrap">
+        <div class="wa-chat">
+          <div class="wa-top">
+            <div class="wa-av">BK</div>
+            <div><strong>BoloKart AI</strong><span class="wa-online">🟢 Online</span></div>
+          </div>
+          <div class="wa-body" id="waBody"></div>
+          <div class="wa-bottom">
+            <span>Type a message...</span><span class="wa-mic-btn">🎙</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BENEFITS ══ -->
+<section class="section benefits-section">
+  <div class="section-wrap">
+    <div class="section-hdr center">
+      <h2 class="section-ttl">Why Choose BoloKart?</h2>
+      <p class="section-sub">Built for rural India. Powered by cutting-edge technology.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="ben-ico">⚡</div><h3>10-Minute Delivery</h3><p>From dark store to doorstep in under 10 minutes, across all 20 villages in Sahibganj</p></div>
+      <div class="benefit-card"><div class="ben-ico">💵</div><h3>Cash on Delivery</h3><p>No UPI? No problem. Pay cash at the door. Always. No digital payment forced.</p></div>
+      <div class="benefit-card"><div class="ben-ico">🌾</div><h3>Rural-First Design</h3><p>Works on 2G. Hindi voice support. Designed for Tier-3 India from the ground up.</p></div>
+      <div class="benefit-card"><div class="ben-ico">🏪</div><h3>Local Store Network</h3><p>Partners with 20+ local kiranas — keeping business in the community.</p></div>
+      <div class="benefit-card"><div class="ben-ico">📍</div><h3>3 Delivery Zones</h3><p>Zone A (12 villages), Zone B (4 villages), Zone C (4 villages) — all covered.</p></div>
+      <div class="benefit-card"><div class="ben-ico">🔄</div><h3>Easy Returns</h3><p>Not satisfied? Return within 24 hours. No questions, no hassle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VENDOR ══ -->
+<section class="section vendor-section" id="vendor">
+  <div class="section-wrap">
+    <div class="vendor-layout">
+      <div class="vendor-visual-side">
+        <div class="vendor-dashboard-card">
+          <div class="vdc-hdr">🏪 Vendor Dashboard</div>
+          <div class="vdc-stats">
+            <div class="vds"><strong>₹12,400</strong><span>This Week</span></div>
+            <div class="vds"><strong>148</strong><span>Orders</span></div>
+            <div class="vds"><strong>4.9 ⭐</strong><span>Rating</span></div>
+          </div>
+          <div class="vdc-orders">
+            <div class="vdo">Order #BK-001 · ₹85 <span class="vstatus delivered">Delivered</span></div>
+            <div class="vdo">Order #BK-002 · ₹120 <span class="vstatus processing">Processing</span></div>
+            <div class="vdo">Order #BK-003 · ₹45 <span class="vstatus pending">Pending</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="vendor-content-side">
+        <div class="eyebrow">🏪 For Vendors</div>
+        <h2 class="section-ttl">Grow Your Business with BoloKart</h2>
+        <p>List your store and reach thousands of customers across 20 villages. We handle delivery, payments, and customer support.</p>
+        <ul class="vendor-perks">
+          <li>✅ Zero commission for first 3 months</li>
+          <li>✅ Real-time order dashboard</li>
+          <li>✅ Inventory management tools</li>
+          <li>✅ Same-day payment settlement</li>
+          <li>✅ Dedicated vendor support</li>
+        </ul>
+        <button class="btn-primary" onclick="openModal('vendorModal')">
+          Become a Vendor Partner <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RIDER ══ -->
+<section class="section rider-section" id="rider">
+  <div class="section-wrap">
+    <div class="rider-layout">
+      <div class="rider-content-side">
+        <div class="eyebrow">🛵 For Riders</div>
+        <h2 class="section-ttl">Earn ₹500–₹800/Day as a BoloKart Rider</h2>
+        <p>Join our growing delivery fleet across Sahibganj district. Flexible hours, guaranteed earnings, weekly payouts.</p>
+        <div class="rider-stat-row">
+          <div class="rst"><strong>₹600</strong><span>Avg daily earn</span></div>
+          <div class="rst"><strong>4.2 hrs</strong><span>Avg work hours</span></div>
+          <div class="rst"><strong>Weekly</strong><span>Payout</span></div>
+        </div>
+        <button class="btn-outline" onclick="openModal('riderModal')">
+          Join as Rider <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="rider-visual-side">
+        <div class="zones-card">
+          <h4>🗺 Active Delivery Zones</h4>
+          <div class="zone-row zone-a">
+            <div class="zone-tag">A</div>
+            <div class="zone-info"><strong>Nadim</strong> · 12 Villages · Srikund Hub</div>
+            <div class="zone-bar-wrap"><div class="zone-bar" style="width:80%"></div></div>
+          </div>
+          <div class="zone-row zone-b">
+            <div class="zone-tag">B</div>
+            <div class="zone-info"><strong>Umar</strong> · 4 Villages · Kankjol Hub</div>
+            <div class="zone-bar-wrap"><div class="zone-bar" style="width:40%"></div></div>
+          </div>
+          <div class="zone-row zone-c">
+            <div class="zone-tag">C</div>
+            <div class="zone-info"><strong>Imran</strong> · 4 Villages · Islampur Hub</div>
+            <div class="zone-bar-wrap"><div class="zone-bar" style="width:40%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="section testi-section">
+  <div class="section-wrap">
+    <div class="section-hdr center">
+      <h2 class="section-ttl">What Our Customers Say</h2>
+      <p class="section-sub">Real reviews from real villages across Sahibganj</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card featured-testi">
+        <div class="tq">"</div>
+        <p>Pehle grocery ke liye 5 km door jaana padta tha. Ab BoloKart se WhatsApp pe order karo aur 10 minute mein ghar pe aa jaata hai. Bahut badiya service hai!</p>
+        <div class="testi-author"><div class="ta-av" style="background:#16A34A">R</div><div><strong>Ramesh Kumar</strong><span>Gumani Village, Sahibganj</span></div></div>
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="testi-card">
+        <div class="tq">"</div>
+        <p>Voice ordering is amazing. I just speak in Hindi and it understands everything. Even my mother who can't read uses BoloKart easily now.</p>
+        <div class="testi-author"><div class="ta-av" style="background:#FF8A00">S</div><div><strong>Sunita Devi</strong><span>Kankjol, Sahibganj</span></div></div>
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="testi-card">
+        <div class="tq">"</div>
+        <p>Cash on delivery is the best. No need for UPI or smartphone. Just order on WhatsApp and pay when delivered. Exactly what our village needed.</p>
+        <div class="testi-author"><div class="ta-av" style="background:#7C3AED">M</div><div><strong>Manoj Yadav</strong><span>Islampur Village</span></div></div>
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NUMBERS BANNER ══ -->
+<div class="numbers-banner">
+  <div class="nb-inner">
+    <div class="nb-left">
+      <h3>BoloKart in Numbers</h3>
+      <div class="nb-stats">
+        <div class="nb-stat"><strong>20+</strong><span>Villages</span></div>
+        <div class="nb-stat"><strong>500+</strong><span>Local Stores</span></div>
+        <div class="nb-stat"><strong>25K+</strong><span>Products</span></div>
+        <div class="nb-stat"><strong>50K+</strong><span>Customers</span></div>
+      </div>
+    </div>
+    <div class="nb-right">
+      <p>Experience the fastest grocery delivery</p>
+      <strong>Download our app now!</strong>
+      <div class="nb-app-btns">
+        <a href="#" class="nb-app-btn">▶ Google Play</a>
+        <a href="#" class="nb-app-btn">🍎 App Store</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ APP SECTION ══ -->
+<section class="section app-section" id="app">
+  <div class="section-wrap">
+    <div class="app-layout">
+      <div class="app-content-side">
+        <div class="app-eyebrow">GET THE APP</div>
+        <h2>Faster, Smarter,<br/>Better</h2>
+        <p>Get 20% off on your first app order</p>
+        <div class="code-block">Use Code: <strong>BK20</strong></div>
+        <div class="store-btns">
+          <a href="#" class="store-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.27.06 2.15.62 2.9.63.85-.18 1.7-.76 3.07-.64 1.73.15 3.04.93 3.78 2.37-3.37 1.9-2.83 6.12.19 7.59-.62 1.39-1.21 2.74-1.94 2.93zM12.03 7.25c-.16-2.42 1.96-4.52 4.42-4.5.32 2.8-2.52 4.98-4.42 4.5z"/></svg>
+            <div><small>Download on the</small><strong>App Store</strong></div>
+          </a>
+          <a href="#" class="store-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.86c.41.23.87.27 1.32.1L14.3 12 4.5.04c-.45-.17-.91-.13-1.32.1-.84.47-1.18 1.4-1.18 2.64v18.44c0 1.24.34 2.17 1.18 2.64zM16.54 9.76L5.62 3.76l8.8 8.24zm1.62.96L15.62 12l2.54 1.28L21.5 12zm-10.54 9.52l10.92-6-8.84-8.24z"/></svg>
+            <div><small>Get it on</small><strong>Google Play</strong></div>
+          </a>
+        </div>
+      </div>
+      <div class="app-phones-side">
+        <div class="app-ph main-ph">
+          <div class="ph-screen">
+            <div class="phs-bar"><strong>BoloKart</strong><span class="phs-eta">⚡ 10 Min</span></div>
+            <div class="phs-search">🔍 Search groceries...</div>
+            <div class="phs-cats"><span>🥦</span><span>🥛</span><span>🍿</span><span>🧴</span></div>
+            <div class="phs-title">Fresh Today</div>
+            <div class="phs-prods">
+              <div class="phs-prod"><span>🍅</span><small>Tomato</small><b>₹25</b></div>
+              <div class="phs-prod"><span>🥔</span><small>Potato</small><b>₹20</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="app-ph side-ph">
+          <div class="ph-screen">
+            <div class="phs-bar"><strong>My Cart</strong><span class="phs-eta">3 items</span></div>
+            <div class="cart-mini-item">🍅 Tomato 1kg <b>₹25</b></div>
+            <div class="cart-mini-item">🥔 Potato 1kg <b>₹20</b></div>
+            <div class="cart-mini-item">🧅 Onion 1kg <b>₹22</b></div>
+            <div class="cart-mini-total"><span>Total</span><strong>₹67</strong></div>
+            <div class="checkout-mini-btn">Checkout →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-top-row">
+      <div class="footer-brand">
+        <div class="f-logo">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#16A34A"/><path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="23" r="4" fill="#FF8A00"/></svg>
+          <span>Bolo<em>Kart</em></span>
+        </div>
+        <p>India's most trusted hyperlocal grocery delivery platform for rural India. Built with ❤️ in Jharkhand.</p>
+        <div class="f-social">
+          <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Blog</a>
+      </div>
+      <div class="f-col">
+        <h4>Help</h4>
+        <a href="#">FAQ</a><a href="#">Track Order</a><a href="#">Return Policy</a><a href="#">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4>Partner</h4>
+        <a href="#vendor">Vendor Signup</a><a href="#rider">Rider Partner</a><a href="#">Franchise</a>
+      </div>
+      <div class="f-col">
+        <h4>Download App</h4>
+        <a href="#" class="f-app-btn">▶ Google Play</a>
+        <a href="#" class="f-app-btn">🍎 App Store</a>
+        <p class="f-wa">WhatsApp: <strong>+91 98765 43210</strong></p>
+      </div>
+    </div>
+    <div class="footer-bottom-row">
+      <p>© 2025 BoloKart. All rights reserved.</p>
+      <div class="f-bot-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ LOGIN MODAL ══ -->
+<div class="modal-overlay" id="loginModal" onclick="overlayClose(event,'loginModal')">
+  <div class="modal login-modal">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <div class="modal-logo-wrap">
+      <svg width="40" height="40" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#16A34A"/><path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="23" r="4" fill="#FF8A00"/></svg>
+      <span class="logo-text">Bolo<em>Kart</em></span>
+    </div>
+    <div id="step1">
+      <h3>Login / Signup</h3>
+      <p class="modal-sub">Enter your WhatsApp number to continue</p>
+      <div class="phone-input-wrap">
+        <span class="ph-prefix">🇮🇳 +91</span>
+        <input type="tel" id="phoneInput" placeholder="Enter mobile number" maxlength="10"/>
+      </div>
+      <button class="btn-primary fw" onclick="sendOTP()">Send OTP via WhatsApp</button>
+      <p class="modal-terms">By continuing, you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a></p>
+    </div>
+    <div id="step2" class="hidden">
+      <h3>Verify OTP</h3>
+      <p class="modal-sub">OTP sent to +91 <span id="otpPhoneShow"></span></p>
+      <div class="otp-row">
+        <input type="text" class="otp-box" maxlength="1"/><input type="text" class="otp-box" maxlength="1"/><input type="text" class="otp-box" maxlength="1"/><input type="text" class="otp-box" maxlength="1"/>
+      </div>
+      <button class="btn-primary fw" onclick="verifyOTP()">Verify &amp; Continue</button>
+      <p class="resend-link">Didn't get it? <a href="#" onclick="sendOTP();return false;">Resend OTP</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CART SIDEBAR ══ -->
+<div class="cart-overlay-bg" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-hdr">
+    <h3>My Cart <span class="cart-badge-sm" id="cartBadge">3 items</span></h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-ftr">
+    <div class="cart-summary">
+      <div class="csrow"><span>Subtotal</span><span id="csSubtotal">₹67</span></div>
+      <div class="csrow"><span>Delivery Fee</span><span>₹15</span></div>
+      <div class="csrow"><span>Platform Fee</span><span>₹5</span></div>
+      <div class="csrow discount-row"><span>Discount (BK20)</span><span id="csDiscount">-₹13</span></div>
+      <div class="csrow total-row"><span>Total Amount</span><strong id="csTotal">₹74</strong></div>
+      <div class="saving-tag">🎉 You save ₹13 on this order</div>
+    </div>
+    <button class="btn-primary fw" onclick="openCheckout()">Proceed to Checkout →</button>
+    <div class="secure-tag">🔒 Secure Payment</div>
+  </div>
+</div>
+
+<!-- ══ CHECKOUT MODAL ══ -->
+<div class="modal-overlay" id="checkoutModal" onclick="overlayClose(event,'checkoutModal')">
+  <div class="modal checkout-modal">
+    <button class="modal-close" onclick="closeModal('checkoutModal')">✕</button>
+    <h3>Checkout</h3>
+    <div class="checkout-layout">
+      <div class="co-left">
+        <div class="co-section">
+          <div class="co-lbl">📍 Delivery Address <span class="tag-home">Home</span> <a href="#" class="co-change">Change</a></div>
+          <div class="addr-box">
+            <strong>Sahid Ansari</strong><br/>Gumani Village, Sahibganj – 816109<br/>Jharkhand, India<br/>+91 98765 43210
+          </div>
+        </div>
+        <div class="co-section">
+          <div class="co-lbl">💳 Payment Method</div>
+          <div class="pay-opts">
+            <label class="pay-opt active-opt"><input type="radio" name="pay" checked/> <span>💵 Cash on Delivery</span><small>Pay when you receive</small></label>
+            <label class="pay-opt"><input type="radio" name="pay"/> <span>📱 UPI</span><small>Pay using any UPI app</small></label>
+            <label class="pay-opt"><input type="radio" name="pay"/> <span>💳 Card</span><small>Debit / Credit Card</small></label>
+          </div>
+        </div>
+      </div>
+      <div class="co-right">
+        <div class="order-sum-box">
+          <h4>Order Summary</h4>
+          <div class="osb-r"><span>3 Items</span><span>₹67</span></div>
+          <div class="osb-r"><span>Delivery Fee</span><span>₹15</span></div>
+          <div class="osb-r"><span>Platform Fee</span><span>₹5</span></div>
+          <div class="osb-r green-row"><span>Discount (BK20)</span><span>-₹13</span></div>
+          <div class="osb-r total-osb"><strong>Total Amount</strong><strong>₹74</strong></div>
+        </div>
+        <button class="btn-primary fw" onclick="placeOrder()">Place Order — ₹74</button>
+        <p class="eta-note">⚡ Delivered in <strong>10 Minutes</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TRACKING MODAL ══ -->
+<div class="modal-overlay" id="trackingModal" onclick="overlayClose(event,'trackingModal')">
+  <div class="modal tracking-modal">
+    <button class="modal-close" onclick="closeModal('trackingModal')">✕</button>
+    <div class="trk-hdr">
+      <h3>Track Order</h3>
+      <span class="trk-id">Order #BK-130526-A-001</span>
+    </div>
+    <div class="trk-steps">
+      <div class="trk-step done"><div class="trk-icon">✓</div><div class="trk-info"><strong>Order Placed</strong><span>10:40 AM</span></div><div class="trk-line"></div></div>
+      <div class="trk-step done"><div class="trk-icon">✓</div><div class="trk-info"><strong>Confirmed</strong><span>10:42 AM</span></div><div class="trk-line"></div></div>
+      <div class="trk-step active-step"><div class="trk-icon pulse">🛵</div><div class="trk-info"><strong>Out for Delivery</strong><span>10:45 AM</span></div><div class="trk-line"></div></div>
+      <div class="trk-step"><div class="trk-icon">📦</div><div class="trk-info"><strong>Delivered</strong><span>Est. 10:50 AM</span></div></div>
+    </div>
+    <div class="rider-card">
+      <div class="rc-av">N</div>
+      <div class="rc-info"><strong>Nadim Ali</strong><span>Your Rider · ⭐ 4.8</span><span class="rc-plate">UP 34 AB 1234</span></div>
+      <div class="rc-btns"><button class="rc-btn">📞</button><button class="rc-btn">💬</button></div>
+    </div>
+    <div class="map-box">
+      <div class="map-rider">🛵</div>
+      <div class="map-home">🏠</div>
+      <div class="map-path"></div>
+      <div class="map-eta-badge">5 mins away</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUCCESS MODAL ══ -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal success-modal">
+    <div class="success-ring"><div class="success-check-icon">✓</div></div>
+    <h2>Order Placed! 🎉</h2>
+    <p>Your order is confirmed. A rider is on the way!</p>
+    <div class="success-deets">
+      <div class="sd-row"><span>Order ID</span><strong id="successOID">BK-130526-A-001</strong></div>
+      <div class="sd-row"><span>Delivery</span><strong>~10 Minutes</strong></div>
+      <div class="sd-row"><span>Payment</span><strong>Cash on Delivery</strong></div>
+    </div>
+    <button class="btn-primary" onclick="openTracking()">Track Order 🛵</button>
+    <button class="btn-ghost" style="margin-top:10px;width:100%" onclick="closeModal('successModal')">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- ══ VENDOR MODAL ══ -->
+<div class="modal-overlay" id="vendorModal" onclick="overlayClose(event,'vendorModal')">
+  <div class="modal form-modal">
+    <button class="modal-close" onclick="closeModal('vendorModal')">✕</button>
+    <h3>🏪 Become a Vendor</h3>
+    <p class="modal-sub">Join BoloKart and grow across 20 villages</p>
+    <div class="form-fields">
+      <input type="text" placeholder="Store Name" class="form-inp"/>
+      <input type="text" placeholder="Owner Name" class="form-inp"/>
+      <input type="tel" placeholder="WhatsApp Number" class="form-inp"/>
+      <input type="text" placeholder="Village / Location" class="form-inp"/>
+      <select class="form-inp"><option>Select Store Type</option><option>Kirana Store</option><option>Supermarket</option><option>Pharmacy</option><option>Bakery</option></select>
+      <button class="btn-primary fw" onclick="submitForm('vendorModal')">Submit Application</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RIDER MODAL ══ -->
+<div class="modal-overlay" id="riderModal" onclick="overlayClose(event,'riderModal')">
+  <div class="modal form-modal">
+    <button class="modal-close" onclick="closeModal('riderModal')">✕</button>
+    <h3>🛵 Join as Rider</h3>
+    <p class="modal-sub">Earn ₹500–₹800/day with flexible hours</p>
+    <div class="form-fields">
+      <input type="text" placeholder="Full Name" class="form-inp"/>
+      <input type="tel" placeholder="WhatsApp Number" class="form-inp"/>
+      <input type="text" placeholder="Village / Location" class="form-inp"/>
+      <select class="form-inp"><option>Select Zone</option><option>Zone A – Srikund (Nadim)</option><option>Zone B – Kankjol (Umar)</option><option>Zone C – Islampur (Imran)</option></select>
+      <select class="form-inp"><option>Vehicle Type</option><option>Bicycle</option><option>Motorcycle</option><option>Scooter</option></select>
+      <button class="btn-primary fw" onclick="submitForm('riderModal')">Apply Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div class="toast-msg" id="toast"></div>
+
+<script src="./assets/js/app.js"></script>
 </body>
-
 </html>
