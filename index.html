@@ -2,620 +2,375 @@
 <html lang="en">
 
 <head>
+
+  <!-- Basic -->
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoloKart — Ab Gumani ke har gaon, har ghar tak</title>
-  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
 
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <title>BoloKart — Get Essentials in 15–20 Mins</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <meta name="description"
+    content="BoloKart delivers groceries and daily essentials from local kirana stores to your home in 15–20 minutes." />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <!-- Theme -->
+  <meta name="theme-color" content="#16A34A" />
 
-  <link rel="manifest" href="assets/icons/site.webmanifest">
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link href="./assets/css/style.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+
+  <!-- Apple -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+
+  <meta name="apple-mobile-web-app-title" content="BoloKart" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+
 </head>
 
 <body>
 
-  <!-- ══ ANNOUNCEMENT BAR ══ -->
-  <div class="announce-bar" id="announceBar">
-    <div class="announce-inner">
-      <div class="announce-left">
-        <span>🎁</span>
-        <span>Flat 20% Off on Your First Order – Use Code: <strong>BKC20</strong></span>
-      </div>
-      <div class="announce-timer">
-        <span class="timer-label">⚡ Offer ends in:</span>
-        <div class="timer-blocks">
-          <span class="tb" id="th">02</span><em>h</em>
-          <span class="tb" id="tm">45</span><em>m</em>
-          <span class="tb" id="ts">30</span><em>s</em>
-        </div>
-      </div>
-      <div class="announce-right">
-        <a href="#app">📱 Download App</a>
-        <a href="#vendor">🏪 Become a Vendor</a>
-        <a href="#rider">🛵 Partner With Us</a>
-      </div>
-    </div>
-  </div>
-
   <!-- ══ NAVBAR ══ -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#" class="nav-logo">
-        <div class="logo-icon">
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-            <circle cx="17" cy="17" r="17" fill="#16A34A" />
-            <path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-            <circle cx="24" cy="23" r="4" fill="#FF8A00" />
-          </svg>
-        </div>
-        <span class="logo-text">Bolo<em>Kart</em></span>
+    <div class="nav-inner">
+
+      <a href="/" class="nav-logo" aria-label="BoloKart Home">
+
+        <img src="./assets/images/logo/logo-dark.svg" alt="BoloKart" class="logo-img" />
+
       </a>
 
-      <div class="nav-location" id="navLocation">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-          <circle cx="12" cy="9" r="2.5" />
-        </svg>
-        <div class="loc-text">
-          <span class="loc-label">Deliver to</span>
-          <span class="loc-place">Gumani, Jharkhand <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
-        </div>
-      </div>
-
-      <div class="nav-links">
-        <a href="#" class="nav-link active">Home</a>
-        <a href="#how" class="nav-link">How It Works</a>
-        <a href="#categories" class="nav-link">Categories</a>
-        <a href="#ai" class="nav-link">AI Features</a>
-        <a href="#vendor" class="nav-link">For Vendors</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-
-      <div class="nav-search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
-          <circle cx="11" cy="11" r="8" />
-          <path d="m21 21-4.35-4.35" />
-        </svg>
-        <input type="text" placeholder="Search groceries, products..." id="searchInput" />
-      </div>
-
-      <div class="nav-actions">
-        <button class="cart-btn" id="cartBtn" onclick="openCart()">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <path d="M16 10a4 4 0 01-8 0" />
+      <div class="nav-search-wrap">
+        <div class="nav-search-box" id="navSearchBox">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
           </svg>
-          <span class="cart-count" id="cartCount">3</span>
-        </button>
-        <button class="login-btn" id="loginBtn" onclick="openModal('loginModal')">Login / Signup</button>
+          <input type="text" id="searchInput" class="nav-search-input"
+            placeholder="Search products, e.g., dal, आटा, दूध, tea ..." autocomplete="off" />
+          <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()">✕</button>
+        </div>
+        <div class="search-results-panel" id="searchPanel"></div>
       </div>
 
-      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <button class="nav-addr-btn" id="navAddrBtn" onclick="openModal('addressModal')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+            <circle cx="12" cy="9" r="2.5" />
+          </svg>
+          <div class="addr-text">
+            <span class="addr-label">Deliver to</span>
+            <span class="addr-value" id="currentAddrText">Srikund, Near Petrolpump</span>
+          </div>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2.5">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <!-- Logged-out state -->
+        <button class="nav-login-btn" id="loginTrigger" onclick="openModal('loginModal')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg>
+          Login
+        </button>
+
+        <!-- Logged-in state (hidden by default) -->
+        <div class="account-dropdown" id="accountDropdown" style="display:none">
+          <button class="account-trigger" onclick="toggleAccountMenu()">
+            <div class="acct-avatar" id="acctAvatar">U</div>
+            <span id="acctName">User</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="account-menu" id="accountMenu">
+            <div class="acct-menu-header">
+              <div class="amh-avatar" id="amhAvatar">U</div>
+              <div><strong id="amhName">User</strong><small id="amhPhone">+91 XXXXXXXXXX</small></div>
+            </div>
+            <a href="#" class="acct-menu-item" onclick="openModal('ordersModal');closeAccountMenu()"><svg width="16"
+                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                <rect x="9" y="3" width="6" height="4" rx="1" />
+              </svg> My Orders</a>
+            <a href="#" class="acct-menu-item" onclick="openModal('profileModal');closeAccountMenu()"><svg width="16"
+                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+              </svg> My Profile</a>
+            <a href="#" class="acct-menu-item" onclick="openModal('addressModal');closeAccountMenu()"><svg width="16"
+                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              </svg> My Addresses</a>
+            <div class="acct-menu-divider"></div>
+            <a href="#" class="acct-menu-item logout" onclick="logout()"><svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+              </svg> Logout</a>
+          </div>
+        </div>
+
+        <button class="nav-cart-btn" onclick="openCart()">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6" />
+          </svg>
+          <span class="cart-dot" id="cartCount" style="display:none">0</span>
+        </button>
+      </div>
+      <button class="hamburger-btn" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
     </div>
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#how">How It Works</a>
-      <a href="#ai">AI Features</a>
-      <a href="#vendor">For Vendors</a>
-      <a href="#rider">For Riders</a>
-      <a href="#app">Download App</a>
-      <button class="btn-primary" onclick="openModal('loginModal')">Login / Signup</button>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#how">How It Works</a><a href="#categories">Categories</a>
+      <a href="#quick-order">Quick Order</a><a href="#partner">Partner</a>
+      <button class="btn-green-fw" onclick="openModal('loginModal');toggleMobileMenu()">Login / Sign Up</button>
     </div>
   </nav>
 
   <!-- ══ HERO ══ -->
   <section class="hero" id="hero">
-    <div class="hero-blobs">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-    </div>
-
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-pulse"></span>
-          India's Most Trusted Hyperlocal Delivery
-        </div>
-
-        <h1 class="hero-title">
-          Quick Grocery<br />
-          Delivery in <span class="ht-green">10 Minutes</span> <span class="ht-bolt">⚡</span>
-        </h1>
-
-        <p class="hero-sub">Fresh groceries, daily essentials &amp; more delivered fast at your doorstep. Order via
-          WhatsApp in Hindi — no app needed!</p>
-
-        <div class="hero-pills">
-          <div class="hero-pill">
-            <span>⏱</span>
-            <div><strong>10 Min Delivery</strong><small>Lightning fast</small></div>
-          </div>
-          <div class="hero-pill">
-            <span>💰</span>
-            <div><strong>Best Prices</strong><small>Lowest guarantee</small></div>
-          </div>
-          <div class="hero-pill">
-            <span>🛡</span>
-            <div><strong>100% Secure</strong><small>Safe payments</small></div>
-          </div>
-        </div>
-
-        <div class="hero-ctas">
-          <button class="btn-primary hero-btn" onclick="openCart()">
-            Shop Now <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button class="btn-ghost hero-btn" onclick="window.open('https://wa.me/919876543210','_blank')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-              <path
-                d="M11.999 2C6.477 2 2 6.477 2 12c0 1.899.525 3.674 1.441 5.193L2 22l4.95-1.427A9.958 9.958 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
-            </svg>
-            WhatsApp Order
-          </button>
-        </div>
-
-        <div class="hero-social-proof">
-          <div class="social-avatars">
-            <div class="av" style="background:#16A34A">R</div>
-            <div class="av" style="background:#FF8A00">S</div>
-            <div class="av" style="background:#3B82F6">M</div>
-            <div class="av" style="background:#8B5CF6">P</div>
-          </div>
-          <div class="social-text">
-            <strong>5000+ Happy Customers</strong>
-            <span>across 20 villages in Jharkhand</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-visual-inner">
-          <!-- Main illustration bg -->
-          <div class="hero-illus-bg"></div>
-
-          <!-- Delivery Boy SVG Illustration -->
-          <div class="delivery-boy-wrap">
-            <div class="delivery-boy-illus">
-              <!-- Head -->
-              <div class="db-head">
-                <div class="db-cap"></div>
-                <div class="db-face">
-                  <div class="db-eyes"><span></span><span></span></div>
-                  <div class="db-smile"></div>
-                </div>
-              </div>
-              <!-- Body -->
-              <div class="db-body">
-                <div class="db-shirt">
-                  <span class="db-badge">B</span>
-                </div>
-                <div class="db-arm db-arm-l"></div>
-                <div class="db-arm db-arm-r"></div>
-              </div>
-              <!-- Basket -->
-              <div class="db-basket">
-                <div class="db-basket-inner">
-                  <div class="db-basket-label">BoloKart</div>
-                  <div class="db-basket-goods">🥦 🍅 🥕</div>
-                </div>
-              </div>
-              <!-- Legs -->
-              <div class="db-legs">
-                <div class="db-leg"></div>
-                <div class="db-leg"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phone mockup -->
-          <div class="phone-mockup-hero">
-            <div class="pmh-notch"></div>
-            <div class="pmh-screen">
-              <div class="pmh-header">
-                <span class="pmh-label">Delivery in</span>
-                <strong class="pmh-time">10 Minutes</strong>
-              </div>
-              <div class="pmh-items">
-                <div class="pmh-item">🥬 Fresh Vegetables</div>
-                <div class="pmh-item">🥛 Milk & Dairy</div>
-                <div class="pmh-item">🍿 Snacks & Drinks</div>
-                <div class="pmh-more">+ More Categories →</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating cards -->
-          <div class="float-card fc-time">
-            <div class="fc-ico">⏱</div>
-            <div><strong>10 Min</strong><span>Fast Delivery</span></div>
-          </div>
-          <div class="float-card fc-rating">
-            <div class="fc-ico">⭐</div>
-            <div><strong>4.8</strong><span>App Rating</span></div>
-          </div>
-          <div class="float-card fc-ai">
-            <div class="fc-ico">🤖</div>
-            <div><strong>AI Voice</strong><span>Hindi Ordering</span></div>
-          </div>
-          <div class="float-card fc-villages">
-            <div class="fc-ico">🏘</div>
-            <div><strong>20 Villages</strong><span>Jharkhand</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ STATS BAR ══ -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat"><span class="stat-ico">👥</span>
-        <div><strong>50K+</strong><small>Happy Customers</small></div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-ico">🛵</span>
-        <div><strong>100+</strong><small>Daily Deliveries</small></div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-ico">🏪</span>
-        <div><strong>20+</strong><small>Local Stores</small></div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-ico">📍</span>
-        <div><strong>20+</strong><small>Villages</small></div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-ico">✅</span>
-        <div><strong>99.9%</strong><small>On-Time</small></div>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-ico">💬</span>
-        <div><strong>24/7</strong><small>Support</small></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ CATEGORIES ══ -->
-  <section class="section categories-section" id="categories">
-    <div class="section-wrap">
-      <div class="section-hdr">
-        <div>
-          <h2 class="section-ttl">Shop By Categories</h2>
-          <p class="section-sub">Browse our wide selection of fresh products</p>
-        </div>
-        <a class="view-all-btn" href="#">View All <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2.5">
+    <div class="hero-left">
+      <div class="hero-badge"><span>⚡</span> 15 - 20 MINS DELIVERY</div>
+      <h1 class="hero-h1">Get your daily<br />essentials at doorstep<br />within <span class="green-text">15–20
+          mins.</span></h1>
+      <p class="hero-sub">Fresh from local kirana stores across Gumani.</p>
+      <div class="hero-cta-row">
+        <button class="cta-primary"
+          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Order Now <svg width="15"
+            height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg></a>
+          </svg></button>
+        <button class="cta-secondary" onclick="openModal('appModal')">Download App <svg width="15" height="15"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+            <polyline points="7,10 12,15 17,10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg></button>
       </div>
-      <div class="cats-grid">
-        <div class="cat-card" onclick="filterProducts('vegetables')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🥦🍅</div>
-          </div>
-          <span>Fruits &amp; Vegetables</span>
-          <small>120+ Products</small>
+      <div class="hero-trust">
+        <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <div><strong>Fast Delivery</strong><small>15 - 20 mins</small></div>
         </div>
-        <div class="cat-card" onclick="filterProducts('dairy')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🥛🧀</div>
-          </div>
-          <span>Dairy &amp; Eggs</span>
-          <small>80+ Products</small>
+        <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+            stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          </svg>
+          <div><strong>Local Stores</strong><small>Near You</small></div>
         </div>
-        <div class="cat-card" onclick="filterProducts('snacks')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🍿🍪</div>
-          </div>
-          <span>Snacks &amp; Branded Foods</span>
-          <small>150+ Products</small>
-        </div>
-        <div class="cat-card" onclick="filterProducts('beverages')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🧃🥤</div>
-          </div>
-          <span>Beverages</span>
-          <small>60+ Products</small>
-        </div>
-        <div class="cat-card" onclick="filterProducts('personal')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🧴🧼</div>
-          </div>
-          <span>Personal Care</span>
-          <small>100+ Products</small>
-        </div>
-        <div class="cat-card" onclick="filterProducts('household')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🧹🪣</div>
-          </div>
-          <span>Household Essentials</span>
-          <small>90+ Products</small>
-        </div>
-        <div class="cat-card" onclick="filterProducts('baby')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🍼👶</div>
-          </div>
-          <span>Baby Care</span>
-          <small>70+ Products</small>
-        </div>
-        <div class="cat-card" onclick="filterProducts('bakery')">
-          <div class="cat-img-box">
-            <div class="cat-emoji-big">🍞🧁</div>
-          </div>
-          <span>Bakery &amp; Biscuits</span>
-          <small>85+ Products</small>
+        <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+            stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <div><strong>Safe &amp; Secure</strong><small>Payments</small></div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ══ PRODUCTS ══ -->
-  <section class="section products-section" id="products">
-    <div class="section-wrap">
-      <div class="section-hdr">
-        <div>
-          <h2 class="section-ttl">Fresh Arrivals</h2>
-          <p class="section-sub">Handpicked products from local farms</p>
+    <div class="hero-right">
+      <div class="hero-img-box">
+        <img src="assets/images/hero-delivery.png" alt="BoloKart Delivery" class="hero-img"
+          onerror="this.parentElement.innerHTML='<div class=hero-img-placeholder>🛵🏠🥦🥛</div>'" />
+      </div>
+      <div class="hero-float-cards">
+        <div class="hfc hfc-1"><span class="hfc-emo">🌾</span>
+          <div><b>Aashirvaad Atta</b><small>5kg · ₹269</small></div>
         </div>
-        <div class="filter-tabs" id="filterTabs">
-          <button class="ftab active" data-filter="all">All</button>
-          <button class="ftab" data-filter="vegetables">Vegetables</button>
-          <button class="ftab" data-filter="dairy">Dairy</button>
-          <button class="ftab" data-filter="snacks">Snacks</button>
-          <button class="ftab" data-filter="beverages">Beverages</button>
+        <div class="hfc hfc-2"><span class="hfc-emo">🥛</span>
+          <div><b>Amul Milk</b><small>1L · ₹56</small></div>
+        </div>
+        <div class="hfc hfc-3"><span class="hfc-emo">🍵</span>
+          <div><b>Tata Tea</b><small>100g · ₹55</small></div>
+        </div>
+        <div class="hfc hfc-4"><span class="hfc-emo">🍪</span>
+          <div><b>Parle-G</b><small>250g · ₹18</small></div>
         </div>
       </div>
-      <div class="products-grid" id="productsGrid"></div>
+      <div class="hero-eta-pill">📍 15 - 20 mins</div>
     </div>
   </section>
 
   <!-- ══ HOW IT WORKS ══ -->
   <section class="section how-section" id="how">
     <div class="section-wrap">
-      <div class="section-hdr center">
-        <h2 class="section-ttl">How BoloKart Works</h2>
-        <p class="section-sub">Order in seconds. Delivered in minutes.</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div class="step-ico">📱</div>
-          <h3>You Order</h3>
-          <p>WhatsApp pe text ya voice message bhejo — Hindi mein. Koi app nahi chahiye.</p>
-          <div class="step-arrow">→</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div class="step-ico">🤖</div>
-          <h3>AI Confirms</h3>
-          <p>Hamara AI agent turant aapka order confirm karta hai aur rider assign karta hai.</p>
-          <div class="step-arrow">→</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div class="step-ico">🛵</div>
-          <h3>We Deliver</h3>
-          <p>Nearest dark store se rider aapka order pick karta hai aur 10 minute mein deliver karta hai.</p>
-          <div class="step-arrow">→</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">04</div>
-          <div class="step-ico">😊</div>
-          <h3>You Enjoy</h3>
-          <p>Fresh products doorstep pe. Cash on delivery. Simple, fast, reliable.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ AI FEATURES ══ -->
-  <section class="section ai-section" id="ai">
-    <div class="section-wrap">
-      <div class="ai-layout">
-        <div class="ai-content">
-          <div class="eyebrow">🤖 AI-Powered Commerce</div>
-          <h2 class="section-ttl">India's First WhatsApp<br />AI Voice Ordering System</h2>
-          <p class="ai-desc">BoloKart uses advanced Llama AI to process voice orders in Hindi from rural customers who
-            may not be able to read or write — making grocery delivery truly accessible.</p>
-          <div class="ai-feats">
-            <div class="ai-feat">
-              <div class="af-ico">🎙</div>
-              <div><strong>Voice Ordering in Hindi</strong>
-                <p>"Ek kilo aalu aur doh litre doodh bhejo" — AI samajhta hai</p>
-              </div>
-            </div>
-            <div class="ai-feat">
-              <div class="af-ico">🧠</div>
-              <div><strong>Smart Cart Agent</strong>
-                <p>AI cart banata hai, total calculate karta hai, discount apply karta hai</p>
-              </div>
-            </div>
-            <div class="ai-feat">
-              <div class="af-ico">📦</div>
-              <div><strong>Real-time Inventory</strong>
-                <p>20 villages ka live stock tracking — kabhi out of stock nahi</p>
-              </div>
-            </div>
-            <div class="ai-feat">
-              <div class="af-ico">🗺</div>
-              <div><strong>Zone-Based Dispatch</strong>
-                <p>Nearest rider auto-assign hota hai zone routing se</p>
-              </div>
-            </div>
-          </div>
-          <button class="btn-primary" onclick="window.open('https://wa.me/919876543210','_blank')">
-            Try AI Ordering on WhatsApp <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
+      <h2 class="section-title">How <span class="green-text">BoloKart</span> Works?</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-circle">
+            <svg viewBox="0 0 60 60" fill="none" width="52" height="52">
+              <circle cx="30" cy="30" r="30" fill="#F0FDF4" />
+              <rect x="18" y="10" width="24" height="40" rx="4" fill="#16A34A" />
+              <rect x="22" y="14" width="16" height="20" rx="2" fill="white" />
+              <rect x="26" y="38" width="8" height="5" rx="1" fill="white" opacity=".6" />
             </svg>
-          </button>
-        </div>
-        <div class="ai-visual-wrap">
-          <div class="wa-chat">
-            <div class="wa-top">
-              <div class="wa-av">BK</div>
-              <div><strong>BoloKart AI</strong><span class="wa-online">🟢 Online</span></div>
-            </div>
-            <div class="wa-body" id="waBody"></div>
-            <div class="wa-bottom">
-              <span>Type a message...</span><span class="wa-mic-btn">🎙</span>
-            </div>
           </div>
+          <div class="how-step-num">1</div>
+          <h4>You Place Order</h4>
+          <p>Add items or use Quick Order (Chat/Voice).</p>
+          <div class="how-arrow">- - - - →</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle">
+            <svg viewBox="0 0 60 60" fill="none" width="52" height="52">
+              <circle cx="30" cy="30" r="30" fill="#F0FDF4" />
+              <rect x="12" y="22" width="36" height="28" rx="3" fill="#16A34A" />
+              <path d="M20 22V18a10 10 0 0120 0v4" stroke="#15803D" stroke-width="3" />
+              <rect x="18" y="28" width="8" height="8" rx="1" fill="white" />
+              <rect x="34" y="28" width="8" height="8" rx="1" fill="white" />
+              <rect x="22" y="38" width="16" height="8" rx="1" fill="#15803D" />
+            </svg>
+          </div>
+          <div class="how-step-num">2</div>
+          <h4>We Confirm &amp; Pack</h4>
+          <p>Nearby store accepts and packs your order.</p>
+          <div class="how-arrow">- - - - →</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle">
+            <svg viewBox="0 0 60 60" fill="none" width="52" height="52">
+              <circle cx="30" cy="30" r="30" fill="#F0FDF4" />
+              <ellipse cx="30" cy="38" rx="18" ry="8" fill="#16A34A" opacity=".15" />
+              <rect x="10" y="28" width="30" height="14" rx="6" fill="#16A34A" />
+              <circle cx="16" cy="42" r="4" fill="#15803D" />
+              <circle cx="34" cy="42" r="4" fill="#15803D" />
+              <rect x="34" y="22" width="10" height="14" rx="3" fill="#22C55E" />
+              <circle cx="39" cy="22" r="5" fill="#FBBF24" />
+            </svg>
+          </div>
+          <div class="how-step-num">3</div>
+          <h4>Rider Picks Up</h4>
+          <p>Our rider picks up your order and starts delivery.</p>
+          <div class="how-arrow">- - - - →</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle">
+            <svg viewBox="0 0 60 60" fill="none" width="52" height="52">
+              <circle cx="30" cy="30" r="30" fill="#F0FDF4" />
+              <rect x="10" y="12" width="40" height="32" rx="4" fill="#16A34A" />
+              <rect x="14" y="16" width="32" height="24" rx="2" fill="white" />
+              <circle cx="30" cy="26" r="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" />
+              <circle cx="30" cy="26" r="2" fill="#16A34A" />
+              <path d="M30 20v-4M30 36v-4M20 26h-4M44 26h-4" stroke="#16A34A" stroke-width="1.5" />
+            </svg>
+          </div>
+          <div class="how-step-num">4</div>
+          <h4>Live Tracking</h4>
+          <p>Track your order in real-time on the map.</p>
+          <div class="how-arrow">- - - - →</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle">
+            <svg viewBox="0 0 60 60" fill="none" width="52" height="52">
+              <circle cx="30" cy="30" r="30" fill="#F0FDF4" />
+              <path d="M12 32l18-16 18 16v18H12V32z" fill="#16A34A" />
+              <rect x="22" y="36" width="16" height="14" rx="2" fill="#15803D" />
+              <rect x="26" y="36" width="8" height="8" rx="1" fill="white" />
+              <rect x="18" y="32" width="4" height="4" rx="1" fill="white" opacity=".6" />
+              <rect x="38" y="32" width="4" height="4" rx="1" fill="white" opacity=".6" />
+              <circle cx="40" cy="20" r="6" fill="#FBBF24" />
+              <path d="M40 17v4M38.5 20.5l2 2" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="how-step-num">5</div>
+          <h4>Delivered to You</h4>
+          <p>Fast, contactless delivery at your doorstep.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ BENEFITS ══ -->
-  <section class="section benefits-section">
-    <div class="section-wrap">
-      <div class="section-hdr center">
-        <h2 class="section-ttl">Why Choose BoloKart?</h2>
-        <p class="section-sub">Built for rural India. Powered by cutting-edge technology.</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="ben-ico">⚡</div>
-          <h3>10-Minute Delivery</h3>
-          <p>From dark store to doorstep in under 10 minutes, across all 20 villages in Sahibganj</p>
-        </div>
-        <div class="benefit-card">
-          <div class="ben-ico">💵</div>
-          <h3>Cash on Delivery</h3>
-          <p>No UPI? No problem. Pay cash at the door. Always. No digital payment forced.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="ben-ico">🌾</div>
-          <h3>Rural-First Design</h3>
-          <p>Works on 2G. Hindi voice support. Designed for Tier-3 India from the ground up.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="ben-ico">🏪</div>
-          <h3>Local Store Network</h3>
-          <p>Partners with 20+ local kiranas — keeping business in the community.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="ben-ico">📍</div>
-          <h3>3 Delivery Zones</h3>
-          <p>Zone A (12 villages), Zone B (4 villages), Zone C (4 villages) — all covered.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="ben-ico">🔄</div>
-          <h3>Easy Returns</h3>
-          <p>Not satisfied? Return within 24 hours. No questions, no hassle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ VENDOR ══ -->
-  <section class="section vendor-section" id="vendor">
-    <div class="section-wrap">
-      <div class="vendor-layout">
-        <div class="vendor-visual-side">
-          <div class="vendor-dashboard-card">
-            <div class="vdc-hdr">🏪 Vendor Dashboard</div>
-            <div class="vdc-stats">
-              <div class="vds"><strong>₹12,400</strong><span>This Week</span></div>
-              <div class="vds"><strong>148</strong><span>Orders</span></div>
-              <div class="vds"><strong>4.9 ⭐</strong><span>Rating</span></div>
-            </div>
-            <div class="vdc-orders">
-              <div class="vdo">Order #BK-001 · ₹85 <span class="vstatus delivered">Delivered</span></div>
-              <div class="vdo">Order #BK-002 · ₹120 <span class="vstatus processing">Processing</span></div>
-              <div class="vdo">Order #BK-003 · ₹45 <span class="vstatus pending">Pending</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="vendor-content-side">
-          <div class="eyebrow">🏪 For Vendors</div>
-          <h2 class="section-ttl">Grow Your Business with BoloKart</h2>
-          <p>List your store and reach thousands of customers across 20 villages. We handle delivery, payments, and
-            customer support.</p>
-          <ul class="vendor-perks">
-            <li>✅ Zero commission for first 3 months</li>
-            <li>✅ Real-time order dashboard</li>
-            <li>✅ Inventory management tools</li>
-            <li>✅ Same-day payment settlement</li>
-            <li>✅ Dedicated vendor support</li>
+  <!-- ══ PARTNER + RIDER ══ -->
+  <section class="partner-rider-section" id="partner">
+    <div class="pr-grid">
+      <!-- Become a Partner -->
+      <div class="pr-card pr-partner">
+        <div class="pr-card-content">
+          <h2 class="pr-title green-text">Become a Partner</h2>
+          <p class="pr-desc">Grow your business with BoloKart and reach thousands of customers.</p>
+          <ul class="pr-list">
+            <li><span class="pr-check green-check">✓</span> Increase your sales</li>
+            <li><span class="pr-check green-check">✓</span> Dedicated account manager</li>
+            <li><span class="pr-check green-check">✓</span> Quick payments</li>
+            <li><span class="pr-check green-check">✓</span> Marketing support</li>
           </ul>
-          <button class="btn-primary" onclick="openModal('vendorModal')">
-            Become a Vendor Partner <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
+          <button class="pr-btn pr-btn-green" onclick="openModal('vendorModal')">Join as a Partner <svg width="15"
+              height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
+            </svg></button>
+        </div>
+        <div class="pr-img-side pr-partner-img">
+          <div class="pr-illustration partner-illus">
+            <div class="illus-store">
+              <div class="store-roof"></div>
+              <div class="store-body">
+                <div class="store-window"></div>
+                <div class="store-window"></div>
+                <div class="store-door"></div>
+              </div>
+              <div class="store-person">
+                <div class="sp-head"></div>
+                <div class="sp-body"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ══ RIDER ══ -->
-  <section class="section rider-section" id="rider">
-    <div class="section-wrap">
-      <div class="rider-layout">
-        <div class="rider-content-side">
-          <div class="eyebrow">🛵 For Riders</div>
-          <h2 class="section-ttl">Earn ₹500–₹800/Day as a BoloKart Rider</h2>
-          <p>Join our growing delivery fleet across Sahibganj district. Flexible hours, guaranteed earnings, weekly
-            payouts.</p>
-          <div class="rider-stat-row">
-            <div class="rst"><strong>₹600</strong><span>Avg daily earn</span></div>
-            <div class="rst"><strong>4.2 hrs</strong><span>Avg work hours</span></div>
-            <div class="rst"><strong>Weekly</strong><span>Payout</span></div>
-          </div>
-          <button class="btn-outline" onclick="openModal('riderModal')">
-            Join as Rider <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
+      <!-- Become a Rider -->
+      <div class="pr-card pr-rider">
+        <div class="pr-card-content">
+          <h2 class="pr-title green-text">Become a Rider</h2>
+          <p class="pr-desc">Deliver smiles and earn with flexible hours and great incentives.</p>
+          <ul class="pr-list">
+            <li><span class="pr-check orange-check">✓</span> Flexible earning</li>
+            <li><span class="pr-check orange-check">✓</span> Weekly payouts</li>
+            <li><span class="pr-check orange-check">✓</span> Incentives &amp; bonuses</li>
+            <li><span class="pr-check orange-check">✓</span> Insurance coverage</li>
+          </ul>
+          <button class="pr-btn pr-btn-orange" onclick="openModal('riderModal')">Join as Rider <svg width="15"
+              height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
+            </svg></button>
         </div>
-        <div class="rider-visual-side">
-          <div class="zones-card">
-            <h4>🗺 Active Delivery Zones</h4>
-            <div class="zone-row zone-a">
-              <div class="zone-tag">A</div>
-              <div class="zone-info"><strong>Nadim</strong> · 12 Villages · Srikund Hub</div>
-              <div class="zone-bar-wrap">
-                <div class="zone-bar" style="width:80%"></div>
+        <div class="pr-img-side pr-rider-img">
+          <div class="pr-illustration rider-illus">
+            <div class="illus-rider">
+              <!-- Rider with green jacket and orange bag -->
+              <div class="rider-figure">
+                <div class="rider-head">
+                  <div class="rider-helmet"></div>
+                </div>
+                <div class="rider-body green-jacket">
+                  <div class="rider-logo-badge">B</div>
+                </div>
+                <div class="rider-bag orange-bag">BK</div>
               </div>
-            </div>
-            <div class="zone-row zone-b">
-              <div class="zone-tag">B</div>
-              <div class="zone-info"><strong>Umar</strong> · 4 Villages · Kankjol Hub</div>
-              <div class="zone-bar-wrap">
-                <div class="zone-bar" style="width:40%"></div>
-              </div>
-            </div>
-            <div class="zone-row zone-c">
-              <div class="zone-tag">C</div>
-              <div class="zone-info"><strong>Imran</strong> · 4 Villages · Islampur Hub</div>
-              <div class="zone-bar-wrap">
-                <div class="zone-bar" style="width:40%"></div>
+              <div class="illus-scooter">
+                <div class="scooter-body"></div>
+                <div class="scooter-w scooter-wf"></div>
+                <div class="scooter-w scooter-wr"></div>
               </div>
             </div>
           </div>
@@ -624,389 +379,761 @@
     </div>
   </section>
 
-  <!-- ══ TESTIMONIALS ══ -->
-  <section class="section testi-section">
+  <!-- ══ NUMBERS ══ -->
+  <section class="numbers-section">
     <div class="section-wrap">
-      <div class="section-hdr center">
-        <h2 class="section-ttl">What Our Customers Say</h2>
-        <p class="section-sub">Real reviews from real villages across Sahibganj</p>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card featured-testi">
-          <div class="tq">"</div>
-          <p>Pehle grocery ke liye 5 km door jaana padta tha. Ab BoloKart se WhatsApp pe order karo aur 10 minute mein
-            ghar pe aa jaata hai. Bahut badiya service hai!</p>
-          <div class="testi-author">
-            <div class="ta-av" style="background:#16A34A">R</div>
-            <div><strong>Ramesh Kumar</strong><span>Gumani Village, Sahibganj</span></div>
-          </div>
-          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+      <h2 class="section-title"><span class="green-text">BoloKart</span> in Numbers</h2>
+      <div class="numbers-grid">
+        <div class="num-card">
+          <div class="num-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect width="40" height="40" rx="10" fill="#DCFCE7" />
+              <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8z" fill="#16A34A" />
+              <path d="M20 16v4l3 2" stroke="white" stroke-width="2" stroke-linecap="round" />
+            </svg></div>
+          <strong class="num-val">500+</strong><span class="num-label">Villages Covered</span>
         </div>
-        <div class="testi-card">
-          <div class="tq">"</div>
-          <p>Voice ordering is amazing. I just speak in Hindi and it understands everything. Even my mother who can't
-            read uses BoloKart easily now.</p>
-          <div class="testi-author">
-            <div class="ta-av" style="background:#FF8A00">S</div>
-            <div><strong>Sunita Devi</strong><span>Kankjol, Sahibganj</span></div>
-          </div>
-          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <div class="num-card">
+          <div class="num-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect width="40" height="40" rx="10" fill="#DCFCE7" />
+              <rect x="10" y="14" width="20" height="16" rx="2" fill="#16A34A" />
+              <path d="M14 14v-2a6 6 0 0112 0v2" stroke="#15803D" stroke-width="2" />
+              <rect x="14" y="18" width="4" height="4" rx="1" fill="white" />
+              <rect x="22" y="18" width="4" height="4" rx="1" fill="white" />
+            </svg></div>
+          <strong class="num-val">5,000+</strong><span class="num-label">Local Vendors</span>
         </div>
-        <div class="testi-card">
-          <div class="tq">"</div>
-          <p>Cash on delivery is the best. No need for UPI or smartphone. Just order on WhatsApp and pay when delivered.
-            Exactly what our village needed.</p>
-          <div class="testi-author">
-            <div class="ta-av" style="background:#7C3AED">M</div>
-            <div><strong>Manoj Yadav</strong><span>Islampur Village</span></div>
-          </div>
-          <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <div class="num-card">
+          <div class="num-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect width="40" height="40" rx="10" fill="#DCFCE7" />
+              <rect x="10" y="10" width="20" height="16" rx="2" fill="#16A34A" />
+              <circle cx="16" cy="30" r="3" fill="#15803D" />
+              <circle cx="24" cy="30" r="3" fill="#15803D" />
+              <path d="M10 24l4-8h12l4 8" fill="#22C55E" />
+            </svg></div>
+          <strong class="num-val">1M+</strong><span class="num-label">Orders Delivered</span>
+        </div>
+        <div class="num-card">
+          <div class="num-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect width="40" height="40" rx="10" fill="#DCFCE7" />
+              <circle cx="20" cy="20" r="10" stroke="#16A34A" stroke-width="3" fill="none" />
+              <path d="M20 14v6l4 3" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" />
+            </svg></div>
+          <strong class="num-val">98.5%</strong><span class="num-label">On-Time Delivery</span>
+        </div>
+        <div class="num-card">
+          <div class="num-icon"><svg viewBox="0 0 40 40" fill="none" width="36" height="36">
+              <rect width="40" height="40" rx="10" fill="#FEF9C3" />
+              <path d="M20 10l2.6 7.4H30l-6.2 4.5 2.4 7.1L20 25.5l-6.2 3.5 2.4-7.1L10 17.4h7.4L20 10z" fill="#F59E0B" />
+            </svg></div>
+          <strong class="num-val">4.8 ★</strong><span class="num-label">Customer Rating (25K+ Reviews)</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ NUMBERS BANNER ══ -->
-  <div class="numbers-banner">
-    <div class="nb-inner">
-      <div class="nb-left">
-        <h3>BoloKart in Numbers</h3>
-        <div class="nb-stats">
-          <div class="nb-stat"><strong>20+</strong><span>Villages</span></div>
-          <div class="nb-stat"><strong>500+</strong><span>Local Stores</span></div>
-          <div class="nb-stat"><strong>25K+</strong><span>Products</span></div>
-          <div class="nb-stat"><strong>50K+</strong><span>Customers</span></div>
+  <!-- ══ ESSENTIAL CATEGORIES + PRODUCTS ══ -->
+  <section class="section" id="categories">
+    <div class="section-wrap">
+      <div class="ess-header">
+        <h2 class="section-title">Daily Essentials</h2>
+        <p class="section-sub">Sorted by category — tap to filter</p>
+      </div>
+      <div class="ess-cats-row" id="essCatsRow">
+        <button class="esc-btn active" data-cat="all">🛒 All Items</button>
+        <button class="esc-btn" data-cat="atta">🌾 Atta &amp; Rice</button>
+        <button class="esc-btn" data-cat="oil">🫙 Oil &amp; Ghee</button>
+        <button class="esc-btn" data-cat="tea">☕ Tea &amp; Coffee</button>
+        <button class="esc-btn" data-cat="dal">🫘 Dals &amp; Pulses</button>
+        <button class="esc-btn" data-cat="dairy">🥛 Dairy</button>
+        <button class="esc-btn" data-cat="snacks">🍪 Snacks</button>
+        <button class="esc-btn" data-cat="vegetables">🥦 Vegetables</button>
+        <button class="esc-btn" data-cat="cleaning">🧼 Cleaning</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section products-section" id="products">
+    <div class="products-wrap">
+      <div class="prod-sidebar" id="prodSidebar">
+        <h3 class="sidebar-title">Categories</h3>
+        <div class="sidebar-list" id="sidebarList">
+          <div class="sl-item active" data-cat="all"><span>🛒</span> All Items</div>
+          <div class="sl-item" data-cat="atta"><span>🌾</span> Atta &amp; Rice</div>
+          <div class="sl-item" data-cat="oil"><span>🫙</span> Oil &amp; Ghee</div>
+          <div class="sl-item" data-cat="tea"><span>☕</span> Tea &amp; Coffee</div>
+          <div class="sl-item" data-cat="dal"><span>🫘</span> Dals &amp; Pulses</div>
+          <div class="sl-item" data-cat="dairy"><span>🥛</span> Dairy</div>
+          <div class="sl-item" data-cat="snacks"><span>🍪</span> Snacks</div>
+          <div class="sl-item" data-cat="vegetables"><span>🥦</span> Vegetables</div>
+          <div class="sl-item" data-cat="cleaning"><span>🧼</span> Cleaning</div>
         </div>
       </div>
-      <div class="nb-right">
-        <p>Experience the fastest grocery delivery</p>
-        <strong>Download our app now!</strong>
-        <div class="nb-app-btns">
-          <a href="#" class="nb-app-btn">▶ Google Play</a>
-          <a href="#" class="nb-app-btn">🍎 App Store</a>
+      <div class="prod-main-area">
+        <div class="prod-main-hdr">
+          <h3 id="prodAreaTitle">Top picks for you</h3>
+          <span id="prodCount" class="prod-count"></span>
         </div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUICK ORDER ══ -->
+  <section class="section quick-order-section" id="quick-order">
+    <div class="section-wrap">
+      <div class="qo-layout">
+        <div class="qo-left">
+          <div class="qo-eyebrow">⚡ Quick Order</div>
+          <h2 class="qo-title">Order by typing<br />or speaking — in Hindi!</h2>
+          <p class="qo-desc">Type karo "2 kg aalu, 1L doodh, Tata Tea" — AI turant cart banata hai. Ya mic dabao aur
+            Hindi mein bolo.</p>
+          <div class="qo-features">
+            <div class="qof">
+              <div class="qof-ico">🎙️</div>
+              <div><strong>Voice in Hindi/English</strong>
+                <p>Bol ke order karo — mic press karo aur bolo</p>
+              </div>
+            </div>
+            <div class="qof">
+              <div class="qof-ico">🧠</div>
+              <div><strong>AI Cart Builder</strong>
+                <p>Natural language se items auto-detect hote hain</p>
+              </div>
+            </div>
+            <div class="qof">
+              <div class="qof-ico">💵</div>
+              <div><strong>Cash on Delivery</strong>
+                <p>Order karo — rider aayega, cash do, saman lo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="qo-right">
+          <div class="qo-chat">
+            <div class="qoc-hdr">
+              <div class="qoc-av"><svg viewBox="0 0 40 40" fill="none" width="22" height="22">
+                  <rect width="40" height="40" rx="8" fill="#fff" />
+                  <path d="M12 16h16l-2 12H14L12 16z" fill="#16A34A" />
+                  <path d="M16 16v-3a4 4 0 018 0v3" stroke="#16A34A" stroke-width="2" stroke-linecap="round" />
+                </svg></div>
+              <div><strong>BoloKart Assistant</strong><span class="qoc-online">🟢 Online</span></div>
+              <div class="qoc-eta">⚡ 15-20 min</div>
+            </div>
+            <div class="qoc-msgs" id="qocMsgs">
+              <div class="qoc-msg-wrap">
+                <div class="qoc-bubble bot-bubble">
+                  BoloKart Assistant ready ⚡<br />
+
+                  <strong>Kya mangwa rahe ho?</strong><br />
+
+                  <small>Type karo ya mic dabao 🎙️</small>
+                </div>
+
+                <div class="qoc-chips">
+                  <button class="qoc-chip" onclick="quickSuggest('1 kg aalu')">1 kg aalu</button>
+                  <button class="qoc-chip" onclick="quickSuggest('Amul Milk 2L')">Amul Milk</button>
+                  <button class="qoc-chip" onclick="quickSuggest('Tata Tea 100g')">Tata Tea</button>
+                  <button class="qoc-chip" onclick="quickSuggest('Parle-G 250g')">Parle-G</button>
+                </div>
+              </div>
+            </div>
+            <div class="qoc-input-area">
+              <div class="qoc-input-row">
+                <input type="text" id="qocInput" class="qoc-input" placeholder="Type: '2 kg aalu, 1L doodh, chai'"
+                  onkeydown="if(event.key==='Enter')sendQuickOrder()" />
+                <button class="qoc-voice-btn" id="voiceBtn" onclick="toggleVoice()" title="Voice">
+                  <svg id="voiceIco" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                    <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" />
+                  </svg>
+                </button>
+                <button class="qoc-send-btn" onclick="sendQuickOrder()">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </button>
+              </div>
+              <div class="qoc-voice-bar hidden" id="voiceBar">
+                <div class="vb-waves"><span></span><span></span><span></span><span></span><span></span></div>
+                <span>Sun raha hoon... boliye</span>
+                <button onclick="toggleVoice()" class="vb-stop">✕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ APP DOWNLOAD ══ -->
+  <section class="app-section" id="app-download">
+    <div class="app-inner">
+      <div class="app-phones">
+        <div class="mock-phone main-mock">
+          <div class="mock-notch"></div>
+          <div class="mock-screen">
+            <div class="ms-topbar"><img src="assets/images/logo.png" alt="BK" class="ms-logo"
+                onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'BoloKart',style:'font-weight:800;color:#16A34A;font-size:11px'}))" /><span
+                class="ms-eta">⚡ 15-20 min</span></div>
+            <div class="ms-search">🔍 Search products...</div>
+            <div class="ms-cats-row"><span>🌾</span><span>🥛</span><span>🍵</span><span>🫘</span></div>
+            <div class="ms-section-label">Categories</div>
+            <div class="ms-cat-grid">
+              <div class="ms-cat"><span>🥦</span><small>Fruits</small></div>
+              <div class="ms-cat"><span>🥛</span><small>Dairy</small></div>
+              <div class="ms-cat"><span>🍿</span><small>Snacks</small></div>
+              <div class="ms-cat"><span>🫘</span><small>Dal</small></div>
+            </div>
+            <div class="ms-section-label">Deals of the Day</div>
+            <div class="ms-deals">
+              <div class="ms-deal"><span>🍎</span><small>Apple</small><b>₹80</b></div>
+              <div class="ms-deal"><span>🥕</span><small>Carrot</small><b>₹25</b></div>
+              <div class="ms-deal"><span>🥬</span><small>Spinach</small><b>₹15</small></div>
+              <div class="ms-deal"><span>🍋</span><small>Lemon</small><b>₹30</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-phone track-mock">
+          <div class="mock-notch"></div>
+          <div class="mock-screen">
+            <div class="ms-topbar"><strong style="font-size:12px">Track Order</strong></div>
+            <div class="ms-map-area">
+              <div class="ms-map-bg">
+                <div class="ms-map-path"></div>
+                <div class="ms-map-pin dest">🏠</div>
+                <div class="ms-map-pin rider">🛵</div>
+              </div>
+            </div>
+            <div class="ms-track-steps">
+              <div class="ms-ts done"><span class="ms-ts-dot">✓</span><span>Order Confirmed</span></div>
+              <div class="ms-ts done"><span class="ms-ts-dot">✓</span><span>Vendor Preparing</span></div>
+              <div class="ms-ts active"><span class="ms-ts-dot">🛵</span><span>Rider Picked Up</span></div>
+              <div class="ms-ts"><span class="ms-ts-dot">📦</span><span>On the Way</span></div>
+              <div class="ms-ts"><span class="ms-ts-dot">✅</span><span>Delivered</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info">
+        <div class="app-eyebrow">THE BOLOKART APP</div>
+        <h2 class="app-title">Everything you need,<br />Delivered in minutes.</h2>
+        <p class="app-sub">Groceries, essentials and more – superfast to your doorstep.</p>
+        <div class="app-download-row">
+          <div class="app-qr">
+            <div class="qr-block">
+              <div class="qr-inner">
+                <svg viewBox="0 0 100 100" width="80" height="80" fill="none">
+                  <rect x="5" y="5" width="35" height="35" rx="4" stroke="#111" stroke-width="4" fill="none" />
+                  <rect x="13" y="13" width="19" height="19" fill="#111" />
+                  <rect x="60" y="5" width="35" height="35" rx="4" stroke="#111" stroke-width="4" fill="none" />
+                  <rect x="68" y="13" width="19" height="19" fill="#111" />
+                  <rect x="5" y="60" width="35" height="35" rx="4" stroke="#111" stroke-width="4" fill="none" />
+                  <rect x="13" y="68" width="19" height="19" fill="#111" />
+                  <rect x="55" y="55" width="8" height="8" fill="#111" />
+                  <rect x="70" y="55" width="8" height="8" fill="#111" />
+                  <rect x="85" y="55" width="8" height="8" fill="#111" />
+                  <rect x="55" y="70" width="8" height="8" fill="#111" />
+                  <rect x="70" y="70" width="8" height="8" fill="#111" />
+                  <rect x="85" y="85" width="8" height="8" fill="#111" />
+                  <rect x="55" y="85" width="8" height="8" fill="#111" />
+                </svg>
+              </div>
+            </div>
+            <div class="qr-label">Scan to download<br />the app now <span class="qr-arrow">↓</span></div>
+          </div>
+          <div class="store-btns-col">
+            <a href="#" class="store-btn-dark">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M3.18 23.86c.41.23.87.27 1.32.1L14.3 12 4.5.04c-.45-.17-.91-.13-1.32.1-.84.47-1.18 1.4-1.18 2.64v18.44c0 1.24.34 2.17 1.18 2.64z" />
+              </svg>
+              <div><small>GET IT ON</small><strong>Google Play</strong></div>
+            </a>
+            <a href="#" class="store-btn-dark">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.27.06 2.15.62 2.9.63.85-.18 1.7-.76 3.07-.64 1.73.15 3.04.93 3.78 2.37-3.37 1.9-2.83 6.12.19 7.59-.62 1.39-1.21 2.74-1.94 2.93z" />
+              </svg>
+              <div><small>Download on the</small><strong>App Store</strong></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ REVIEWS ══ -->
+  <section class="section reviews-section">
+    <div class="section-wrap">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="reviews-carousel-wrap">
+        <button class="rev-arrow rev-prev" onclick="scrollReviews(-1)">&#8592;</button>
+        <div class="reviews-track" id="reviewsTrack">
+          <div class="rev-card">
+            <div class="rev-top">
+              <div class="rev-av" style="background:#16A34A">Y</div>
+              <div><strong>Yusuf Sk</strong><small>Srikund</small></div>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p>"BoloKart is a blessing! I get everything fresh and on time. Delivery is always superfast."</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-top">
+              <div class="rev-av" style="background:#FF8A00">M</div>
+              <div><strong>Md Hasan</strong><small>Harihara</small></div>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p>"Love the Quick Order feature. I just speak and my order is ready in minutes!"</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-top">
+              <div class="rev-av" style="background:#3B82F6">S</div>
+              <div><strong>Sohel Anwar</strong><small>Naya Palasbona</small></div>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p>"Best service in our area. Prices are low and quality is always guaranteed."</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-top">
+              <div class="rev-av" style="background:#7C3AED">T</div>
+              <div><strong>Tarhib Alam</strong><small>Dilalpur</small></div>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p>"Very easy to use app. Tracking is accurate and delivery boys are very polite."</p>
+          </div>
+        </div>
+        <button class="rev-arrow rev-next" onclick="scrollReviews(1)">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRUST FOOTER BAR ══ -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="tb-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+          stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <div><strong>100% Secure Payments</strong><small>Safe &amp; encrypted transactions</small></div>
+      </div>
+      <div class="tb-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+          stroke-width="2">
+          <polyline points="1 4 1 10 7 10" />
+          <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
+        </svg>
+        <div><strong>Easy Returns</strong><small>Hassle-free returns policy</small></div>
+      </div>
+      <div class="tb-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+          stroke-width="2">
+          <path
+            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014 4.11 2 2 0 015.92 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L10.09 9.91" />
+        </svg>
+        <div><strong>24x7 Support</strong><small>We're always here to help</small></div>
+      </div>
+      <div class="tb-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+          stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+        </svg>
+        <div><strong>Freshness You Can Trust</strong><small>Quality checked products</small></div>
       </div>
     </div>
   </div>
 
-  <!-- ══ APP SECTION ══ -->
-  <section class="section app-section" id="app">
-    <div class="section-wrap">
-      <div class="app-layout">
-        <div class="app-content-side">
-          <div class="app-eyebrow">GET THE APP</div>
-          <h2>Faster, Smarter,<br />Better</h2>
-          <p>Get 20% off on your first app order</p>
-          <div class="code-block">Use Code: <strong>BK20</strong></div>
-          <div class="store-btns">
-            <a href="#" class="store-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="fg-brand">
+
+          <a href="/" class="footer-brand-link" aria-label="BoloKart Home">
+
+            <img src="assets/images/logo/logo-light.svg" alt="BoloKart" class="footer-logo">
+
+          </a>
+
+          <p>
+            BoloKart is your trusted quick-commerce platform bringing groceries and daily essentials from local kirana
+            stores to homes in 15–20 mins.
+          </p>
+
+          <em class="fg-tag">
+            Serving freshness. Serving villages.
+          </em>
+
+        </div>
+        <div class="fg-col">
+          <h4>Categories</h4><a href="#" onclick="filterProducts('vegetables')">Fruits &amp; Vegetables</a><a href="#"
+            onclick="filterProducts('dairy')">Dairy &amp; Eggs</a><a href="#" onclick="filterProducts('atta')">Atta,
+            Rice &amp; Dal</a><a href="#" onclick="filterProducts('snacks')">Snacks &amp; Beverages</a><a href="#"
+            onclick="filterProducts('cleaning')">Personal Care</a>
+        </div>
+        <div class="fg-col">
+          <h4>Help / Contact</h4><a href="#">FAQs</a><a href="#" onclick="openModal('trackingModal')">Track Your
+            Order</a><a href="#">Returns &amp; Refunds</a><a href="#">Privacy Policy</a><a href="#">Terms &amp;
+            Conditions</a>
+          <div class="fg-contacts">
+            <div>📞 +91 98765 43210</div>
+            <div>✉️ support@bolokart.com</div>
+            <div>📍 Gumani,Sahibganj,Jharkhand</div>
+          </div>
+        </div>
+        <div class="fg-col">
+          <h4>Download the BoloKart App</h4>
+          <p class="fg-app-sub">Faster. Easier. Smarter.</p>
+          <div class="fg-store-btns"><a href="#" class="fg-store-btn"><svg width="20" height="20" viewBox="0 0 24 24"
+                fill="white">
                 <path
-                  d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.27.06 2.15.62 2.9.63.85-.18 1.7-.76 3.07-.64 1.73.15 3.04.93 3.78 2.37-3.37 1.9-2.83 6.12.19 7.59-.62 1.39-1.21 2.74-1.94 2.93zM12.03 7.25c-.16-2.42 1.96-4.52 4.42-4.5.32 2.8-2.52 4.98-4.42 4.5z" />
+                  d="M3.18 23.86c.41.23.87.27 1.32.1L14.3 12 4.5.04c-.45-.17-.91-.13-1.32.1-.84.47-1.18 1.4-1.18 2.64v18.44c0 1.24.34 2.17 1.18 2.64z" />
+              </svg>
+              <div><small>GET IT ON</small><strong>Google Play</strong></div>
+            </a><a href="#" class="fg-store-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.27.06 2.15.62 2.9.63.85-.18 1.7-.76 3.07-.64 1.73.15 3.04.93 3.78 2.37-3.37 1.9-2.83 6.12.19 7.59-.62 1.39-1.21 2.74-1.94 2.93z" />
               </svg>
               <div><small>Download on the</small><strong>App Store</strong></div>
-            </a>
-            <a href="#" class="store-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M3.18 23.86c.41.23.87.27 1.32.1L14.3 12 4.5.04c-.45-.17-.91-.13-1.32.1-.84.47-1.18 1.4-1.18 2.64v18.44c0 1.24.34 2.17 1.18 2.64zM16.54 9.76L5.62 3.76l8.8 8.24zm1.62.96L15.62 12l2.54 1.28L21.5 12zm-10.54 9.52l10.92-6-8.84-8.24z" />
-              </svg>
-              <div><small>Get it on</small><strong>Google Play</strong></div>
-            </a>
-          </div>
-        </div>
-        <div class="app-phones-side">
-          <div class="app-ph main-ph">
-            <div class="ph-screen">
-              <div class="phs-bar"><strong>BoloKart</strong><span class="phs-eta">⚡ 10 Min</span></div>
-              <div class="phs-search">🔍 Search groceries...</div>
-              <div class="phs-cats"><span>🥦</span><span>🥛</span><span>🍿</span><span>🧴</span></div>
-              <div class="phs-title">Fresh Today</div>
-              <div class="phs-prods">
-                <div class="phs-prod"><span>🍅</span><small>Tomato</small><b>₹25</b></div>
-                <div class="phs-prod"><span>🥔</span><small>Potato</small><b>₹20</b></div>
-              </div>
-            </div>
-          </div>
-          <div class="app-ph side-ph">
-            <div class="ph-screen">
-              <div class="phs-bar"><strong>My Cart</strong><span class="phs-eta">3 items</span></div>
-              <div class="cart-mini-item">🍅 Tomato 1kg <b>₹25</b></div>
-              <div class="cart-mini-item">🥔 Potato 1kg <b>₹20</b></div>
-              <div class="cart-mini-item">🧅 Onion 1kg <b>₹22</b></div>
-              <div class="cart-mini-total"><span>Total</span><strong>₹67</strong></div>
-              <div class="checkout-mini-btn">Checkout →</div>
-            </div>
-          </div>
+            </a></div>
+          <div class="fg-social"><span>Follow us on</span><a href="#" class="fgs">📘</a><a href="#" class="fgs">📸</a><a
+              href="#" class="fgs">💬</a><a href="#" class="fgs">▶</a></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══ -->
-  <footer class="footer" id="contact">
-    <div class="footer-inner">
-      <div class="footer-top-row">
-        <div class="footer-brand">
-          <div class="f-logo">
-            <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
-              <circle cx="17" cy="17" r="17" fill="#16A34A" />
-              <path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-              <circle cx="24" cy="23" r="4" fill="#FF8A00" />
-            </svg>
-            <span>Bolo<em>Kart</em></span>
-          </div>
-          <p>India's most trusted hyperlocal grocery delivery platform for rural India. Built with ❤️ in Jharkhand.</p>
-          <div class="f-social">
-            <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶</a>
-          </div>
-        </div>
-        <div class="f-col">
-          <h4>Company</h4>
-          <a href="#">About Us</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Blog</a>
-        </div>
-        <div class="f-col">
-          <h4>Help</h4>
-          <a href="#">FAQ</a><a href="#">Track Order</a><a href="#">Return Policy</a><a href="#">Contact</a>
-        </div>
-        <div class="f-col">
-          <h4>Partner</h4>
-          <a href="#vendor">Vendor Signup</a><a href="#rider">Rider Partner</a><a href="#">Franchise</a>
-        </div>
-        <div class="f-col">
-          <h4>Download App</h4>
-          <a href="#" class="f-app-btn">▶ Google Play</a>
-          <a href="#" class="f-app-btn">🍎 App Store</a>
-          <p class="f-wa">WhatsApp: <strong>+91 98765 43210</strong></p>
-        </div>
-      </div>
-      <div class="footer-bottom-row">
-        <p>© 2025 BoloKart. All rights reserved.</p>
-        <div class="f-bot-links">
-          <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a>
-        </div>
+      <div class="footer-bottom"><span>📍 Serving 20+ villagesmacross Gumani, Jharkhand.</span>
+        <div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">© 2026 BoloKart</a></div>
       </div>
     </div>
   </footer>
 
-  <!-- ══ LOGIN MODAL ══ -->
+  <!-- ═══════════════ MODALS ═══════════════ -->
+
+  <!-- LOGIN -->
   <div class="modal-overlay" id="loginModal" onclick="overlayClose(event,'loginModal')">
-    <div class="modal login-modal">
-      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
-      <div class="modal-logo-wrap">
-        <svg width="40" height="40" viewBox="0 0 34 34" fill="none">
-          <circle cx="17" cy="17" r="17" fill="#16A34A" />
-          <path d="M9 11h16M9 17h13M9 23h9" stroke="white" stroke-width="2.5" stroke-linecap="round" />
-          <circle cx="24" cy="23" r="4" fill="#FF8A00" />
-        </svg>
-        <span class="logo-text">Bolo<em>Kart</em></span>
-      </div>
-      <div id="step1">
-        <h3>Login / Signup</h3>
-        <p class="modal-sub">Enter your WhatsApp number to continue</p>
-        <div class="phone-input-wrap">
-          <span class="ph-prefix">🇮🇳 +91</span>
-          <input type="tel" id="phoneInput" placeholder="Enter mobile number" maxlength="10" />
-        </div>
-        <button class="btn-primary fw" onclick="sendOTP()">Send OTP via WhatsApp</button>
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('loginModal')">✕</button>
+      <div class="modal-logo-row"><img src="assets/images/logo.png" alt="BK" class="modal-logo-img"
+          onerror="this.style.display='none'" /><span class="logo-text-sm"><b>Bolo</b><em>Kart</em></span></div>
+      <div id="loginStep1">
+        <h3>Login / Sign Up</h3>
+        <p class="modal-sub">Enter your mobile number to continue</p>
+        <div class="phone-inp-wrap"><span class="phone-flag">🇮🇳 +91</span><input type="tel" id="phoneInput"
+            maxlength="10" placeholder="Enter 10-digit number" /></div>
+        <button class="btn-green-fw mt12" onclick="sendOTP()">Get OTP</button>
         <p class="modal-terms">By continuing, you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy
             Policy</a></p>
       </div>
-      <div id="step2" class="hidden">
-        <h3>Verify OTP</h3>
-        <p class="modal-sub">OTP sent to +91 <span id="otpPhoneShow"></span></p>
-        <div class="otp-row">
-          <input type="text" class="otp-box" maxlength="1" /><input type="text" class="otp-box" maxlength="1" /><input
-            type="text" class="otp-box" maxlength="1" /><input type="text" class="otp-box" maxlength="1" />
+      <div id="loginStep2" class="hidden">
+        <h3>Enter OTP</h3>
+        <p class="modal-sub">Sent to +91 <span id="otpPhoneDisp"></span> · <a href="#"
+            onclick="resetToStep1()">Change</a></p>
+        <div class="otp-boxes"><input class="otpb" maxlength="1" type="text" /><input class="otpb" maxlength="1"
+            type="text" /><input class="otpb" maxlength="1" type="text" /><input class="otpb" maxlength="1"
+            type="text" /></div>
+        <div class="otp-timer-row"><span id="otpTimer">Resend in 30s</span></div>
+        <button class="btn-green-fw mt12" onclick="verifyOTP()">Verify &amp; Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDRESS MODAL -->
+  <div class="modal-overlay" id="addressModal" onclick="overlayClose(event,'addressModal')">
+    <div class="modal modal-address">
+      <button class="modal-x" onclick="closeModal('addressModal')">✕</button>
+      <h3>📍 Delivery Address</h3>
+      <div class="addr-search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="text" id="addrSearchInput" placeholder="Search for your area, street, village..." />
+      </div>
+      <button class="detect-location-btn" onclick="detectLocation()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+        </svg>
+        Use current location
+      </button>
+      <div class="saved-addresses" id="savedAddresses">
+        <h4>Saved Addresses</h4>
+        <div id="savedAddrList"></div>
+      </div>
+      <button class="add-new-addr-btn" onclick="showAddNewAddr()">+ Add New Address</button>
+      <div class="add-addr-form hidden" id="addAddrForm">
+        <h4>Add New Address</h4>
+        <div class="addr-form-grid">
+          <input type="text" placeholder="Full Name" id="af_name" class="addr-input" />
+          <input type="tel" placeholder="Mobile Number" id="af_phone" class="addr-input" />
+          <input type="text" placeholder="House / Flat No." id="af_house" class="addr-input" />
+          <input type="text" placeholder="Street / Colony" id="af_street" class="addr-input" />
+          <input type="text" placeholder="Village / Town" id="af_village" class="addr-input" />
+          <input type="text" placeholder="District" id="af_district" class="addr-input" />
+          <input type="text" placeholder="State" id="af_state" class="addr-input" />
+          <input type="text" placeholder="Pincode" id="af_pin" class="addr-input" maxlength="6" />
         </div>
-        <button class="btn-primary fw" onclick="verifyOTP()">Verify &amp; Continue</button>
-        <p class="resend-link">Didn't get it? <a href="#" onclick="sendOTP();return false;">Resend OTP</a></p>
+        <div class="addr-type-row">
+          <span>Address Type:</span>
+          <label class="addr-type-tag"><input type="radio" name="addrType" value="Home" checked /> 🏠 Home</label>
+          <label class="addr-type-tag"><input type="radio" name="addrType" value="Work" /> 🏢 Work</label>
+          <label class="addr-type-tag"><input type="radio" name="addrType" value="Other" /> 📍 Other</label>
+        </div>
+        <button class="btn-green-fw" onclick="saveNewAddress()">Save Address</button>
       </div>
     </div>
   </div>
 
-  <!-- ══ CART SIDEBAR ══ -->
-  <div class="cart-overlay-bg" id="cartOverlay" onclick="closeCart()"></div>
-  <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-hdr">
-      <h3>My Cart <span class="cart-badge-sm" id="cartBadge">3 items</span></h3>
-      <button class="cart-close" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-body" id="cartBody"></div>
-    <div class="cart-ftr">
-      <div class="cart-summary">
-        <div class="csrow"><span>Subtotal</span><span id="csSubtotal">₹67</span></div>
-        <div class="csrow"><span>Delivery Fee</span><span>₹15</span></div>
-        <div class="csrow"><span>Platform Fee</span><span>₹5</span></div>
-        <div class="csrow discount-row"><span>Discount (BK20)</span><span id="csDiscount">-₹13</span></div>
-        <div class="csrow total-row"><span>Total Amount</span><strong id="csTotal">₹74</strong></div>
-        <div class="saving-tag">🎉 You save ₹13 on this order</div>
-      </div>
-      <button class="btn-primary fw" onclick="openCheckout()">Proceed to Checkout →</button>
-      <div class="secure-tag">🔒 Secure Payment</div>
+  <!-- ACCOUNT - ORDERS MODAL -->
+  <div class="modal-overlay" id="ordersModal" onclick="overlayClose(event,'ordersModal')">
+    <div class="modal modal-wide">
+      <button class="modal-x" onclick="closeModal('ordersModal')">✕</button>
+      <h3>My Orders</h3>
+      <div id="ordersListContainer"></div>
     </div>
   </div>
 
-  <!-- ══ CHECKOUT MODAL ══ -->
+  <!-- ACCOUNT - PROFILE MODAL -->
+  <div class="modal-overlay" id="profileModal" onclick="overlayClose(event,'profileModal')">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('profileModal')">✕</button>
+      <h3>My Profile</h3>
+      <div class="profile-av-row">
+        <div class="profile-av-big" id="profileAvBig">U</div><button class="profile-edit-btn"
+          onclick="enableProfileEdit()">Edit</button>
+      </div>
+      <div class="profile-fields">
+        <div class="pf-field"><label>Full Name</label><input type="text" id="pf_name" readonly /></div>
+        <div class="pf-field"><label>Mobile Number</label><input type="tel" id="pf_phone" readonly /></div>
+        <div class="pf-field"><label>Email (optional)</label><input type="email" id="pf_email" placeholder="Add email"
+            readonly /></div>
+      </div>
+      <button class="btn-green-fw hidden" id="saveProfileBtn" onclick="saveProfile()">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="productModal" onclick="overlayClose(event,'productModal')">
+    <div class="modal modal-product">
+      <button class="modal-x" onclick="closeModal('productModal')">✕</button>
+      <div class="prod-modal-content" id="prodModalContent"></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cd-hdr">
+      <h3>My Cart <span class="cd-badge" id="cdBadge"></span></h3>
+      <button class="cd-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cd-body" id="cdBody"></div>
+    <div class="cd-footer" id="cdFooter"></div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
   <div class="modal-overlay" id="checkoutModal" onclick="overlayClose(event,'checkoutModal')">
-    <div class="modal checkout-modal">
-      <button class="modal-close" onclick="closeModal('checkoutModal')">✕</button>
+    <div class="modal modal-checkout">
+      <button class="modal-x" onclick="closeModal('checkoutModal')">✕</button>
       <h3>Checkout</h3>
       <div class="checkout-layout">
         <div class="co-left">
-          <div class="co-section">
-            <div class="co-lbl">📍 Delivery Address <span class="tag-home">Home</span> <a href="#"
-                class="co-change">Change</a></div>
-            <div class="addr-box">
-              <strong>Sahid Ansari</strong><br />Gumani Village, Sahibganj – 816109<br />Jharkhand, India<br />+91 98765
-              43210
+          <div class="co-block">
+            <div class="co-block-title">📍 Delivery Address
+              <button class="co-change-btn" onclick="openModal('addressModal')">Change</button>
+            </div>
+            <div class="co-addr-display" id="coAddrDisplay">
+              <strong id="coAddrName">Srikund Village</strong>
+              <p id="coAddrDetail">Sahibganj – 816101, Jharkhand · +91 99999 00000</p>
             </div>
           </div>
-          <div class="co-section">
-            <div class="co-lbl">💳 Payment Method</div>
-            <div class="pay-opts">
-              <label class="pay-opt active-opt"><input type="radio" name="pay" checked /> <span>💵 Cash on
-                  Delivery</span><small>Pay when you receive</small></label>
-              <label class="pay-opt"><input type="radio" name="pay" /> <span>📱 UPI</span><small>Pay using any UPI
-                  app</small></label>
-              <label class="pay-opt"><input type="radio" name="pay" /> <span>💳 Card</span><small>Debit / Credit
-                  Card</small></label>
+          <div class="co-block">
+            <div class="co-block-title">💳 Payment Method</div>
+            <div class="co-pay-opts">
+              <label class="co-pay-opt active-pay" id="payOptCOD"><input type="radio" name="payment" value="cod" checked
+                  onchange="selectPayment(this)" />
+                <div class="cop-ico">💵</div>
+                <div><strong>Cash on Delivery</strong><small>Pay when your order arrives</small></div>
+                <div class="cop-check">✓</div>
+              </label>
+              <label class="co-pay-opt" id="payOptUPI"><input type="radio" name="payment" value="upi"
+                  onchange="selectPayment(this)" />
+                <div class="cop-ico">📱</div>
+                <div><strong>UPI Payment</strong><small>PhonePe, GPay, Paytm</small></div>
+                <div class="cop-check">✓</div>
+              </label>
+              <label class="co-pay-opt" id="payOptCard"><input type="radio" name="payment" value="card"
+                  onchange="selectPayment(this)" />
+                <div class="cop-ico">💳</div>
+                <div><strong>Card Payment</strong><small>Debit / Credit Card</small></div>
+                <div class="cop-check">✓</div>
+              </label>
+            </div>
+          </div>
+          <div class="co-block">
+            <div class="co-block-title">🎟 Apply Coupon</div>
+            <div class="coupon-input-row">
+              <input type="text" id="couponInput" class="coupon-input" placeholder="Enter coupon code (e.g. BK20)" />
+              <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+            </div>
+            <div class="coupon-result" id="couponResult"></div>
+            <div class="coupon-chips">
+              <button class="coupon-chip" onclick="setCoupon('BK20')">BK20 — 20% off</button>
+              <button class="coupon-chip" onclick="setCoupon('FIRST50')">FIRST50 — ₹50 off</button>
             </div>
           </div>
         </div>
         <div class="co-right">
-          <div class="order-sum-box">
+          <div class="co-summary-box">
             <h4>Order Summary</h4>
-            <div class="osb-r"><span>3 Items</span><span>₹67</span></div>
-            <div class="osb-r"><span>Delivery Fee</span><span>₹15</span></div>
-            <div class="osb-r"><span>Platform Fee</span><span>₹5</span></div>
-            <div class="osb-r green-row"><span>Discount (BK20)</span><span>-₹13</span></div>
-            <div class="osb-r total-osb"><strong>Total Amount</strong><strong>₹74</strong></div>
+            <div id="coSummaryItems" class="co-sum-items"></div>
+            <div class="co-sum-divider"></div>
+            <div class="co-sum-row"><span>Item Total</span><span id="coItemTotal">₹0</span></div>
+            <div class="co-sum-row"><span>Delivery Fee</span><span id="coDelivery">₹15</span></div>
+            <div class="co-sum-row discount-row hidden" id="coCouponRow"><span id="coCouponLabel">Coupon</span><span
+                id="coCouponSaving" class="green-text">-₹0</span></div>
+            <div class="co-sum-divider"></div>
+            <div class="co-sum-row co-total-row"><strong>Total Amount</strong><strong id="coGrandTotal">₹0</strong>
+            </div>
           </div>
-          <button class="btn-primary fw" onclick="placeOrder()">Place Order — ₹74</button>
-          <p class="eta-note">⚡ Delivered in <strong>10 Minutes</strong></p>
+          <button class="place-order-btn" id="placeOrderBtn" onclick="placeOrder()">
+            Place Order <span id="placeOrderAmt"></span>
+          </button>
+          <div class="co-eta-note">⚡ Estimated delivery: <strong>15–20 minutes</strong></div>
+          <div class="co-secure-note">🔒 100% Secure &amp; Encrypted Checkout</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ TRACKING MODAL ══ -->
-  <div class="modal-overlay" id="trackingModal" onclick="overlayClose(event,'trackingModal')">
-    <div class="modal tracking-modal">
-      <button class="modal-close" onclick="closeModal('trackingModal')">✕</button>
-      <div class="trk-hdr">
-        <h3>Track Order</h3>
-        <span class="trk-id">Order #BK-130526-A-001</span>
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal modal-center">
+      <div class="success-ring">
+        <div class="success-tick">✓</div>
       </div>
+      <h2>Order Placed! 🎉</h2>
+      <p>Rider is on the way to your doorstep!</p>
+      <div class="success-det">
+        <div class="sd-r"><span>Order ID</span><strong id="sOID">—</strong></div>
+        <div class="sd-r"><span>Delivery</span><strong>15–20 Minutes</strong></div>
+        <div class="sd-r"><span>Payment</span><strong id="sPayment">Cash on Delivery</strong></div>
+      </div>
+      <button class="btn-green-fw" onclick="closeModal('successModal');openModal('trackingModal')">Track Order
+        🛵</button>
+      <button class="btn-outline-fw mt10" onclick="closeModal('successModal')">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- TRACKING MODAL -->
+  <div class="modal-overlay" id="trackingModal" onclick="overlayClose(event,'trackingModal')">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('trackingModal')">✕</button>
+      <h3>Track Order</h3>
+      <div class="trk-order-id">Order <strong id="trkOID">#BK-140526-A-001</strong></div>
       <div class="trk-steps">
         <div class="trk-step done">
-          <div class="trk-icon">✓</div>
-          <div class="trk-info"><strong>Order Placed</strong><span>10:40 AM</span></div>
+          <div class="trk-dot">✓</div>
+          <div class="trk-info"><strong>Order Placed</strong><small>10:40 AM</small></div>
           <div class="trk-line"></div>
         </div>
         <div class="trk-step done">
-          <div class="trk-icon">✓</div>
-          <div class="trk-info"><strong>Confirmed</strong><span>10:42 AM</span></div>
+          <div class="trk-dot">✓</div>
+          <div class="trk-info"><strong>Confirmed</strong><small>10:42 AM</small></div>
           <div class="trk-line"></div>
         </div>
-        <div class="trk-step active-step">
-          <div class="trk-icon pulse">🛵</div>
-          <div class="trk-info"><strong>Out for Delivery</strong><span>10:45 AM</span></div>
+        <div class="trk-step trk-active">
+          <div class="trk-dot trk-pulse">🛵</div>
+          <div class="trk-info"><strong>Out for Delivery</strong><small>Rider is coming...</small></div>
           <div class="trk-line"></div>
         </div>
         <div class="trk-step">
-          <div class="trk-icon">📦</div>
-          <div class="trk-info"><strong>Delivered</strong><span>Est. 10:50 AM</span></div>
+          <div class="trk-dot">📦</div>
+          <div class="trk-info"><strong>Delivered</strong><small>Est. 15–20 mins</small></div>
         </div>
       </div>
-      <div class="rider-card">
-        <div class="rc-av">N</div>
-        <div class="rc-info"><strong>Nadim Ali</strong><span>Your Rider · ⭐ 4.8</span><span class="rc-plate">UP 34 AB
-            1234</span></div>
-        <div class="rc-btns"><button class="rc-btn">📞</button><button class="rc-btn">💬</button></div>
-      </div>
-      <div class="map-box">
-        <div class="map-rider">🛵</div>
-        <div class="map-home">🏠</div>
-        <div class="map-path"></div>
-        <div class="map-eta-badge">5 mins away</div>
+      <div class="trk-rider-card">
+        <div class="trc-av">N</div>
+        <div class="trc-info"><strong>Nadim Alam</strong><small>Your Rider · ⭐ 4.8 · Zone A</small></div>
+        <div class="trc-btns"><button class="trc-btn">📞</button><button class="trc-btn">💬</button></div>
       </div>
     </div>
   </div>
 
-  <!-- ══ SUCCESS MODAL ══ -->
-  <div class="modal-overlay" id="successModal">
-    <div class="modal success-modal">
-      <div class="success-ring">
-        <div class="success-check-icon">✓</div>
-      </div>
-      <h2>Order Placed! 🎉</h2>
-      <p>Your order is confirmed. A rider is on the way!</p>
-      <div class="success-deets">
-        <div class="sd-row"><span>Order ID</span><strong id="successOID">BK-130526-A-001</strong></div>
-        <div class="sd-row"><span>Delivery</span><strong>~10 Minutes</strong></div>
-        <div class="sd-row"><span>Payment</span><strong>Cash on Delivery</strong></div>
-      </div>
-      <button class="btn-primary" onclick="openTracking()">Track Order 🛵</button>
-      <button class="btn-ghost" style="margin-top:10px;width:100%" onclick="closeModal('successModal')">Continue
-        Shopping</button>
-    </div>
-  </div>
-
-  <!-- ══ VENDOR MODAL ══ -->
+  <!-- VENDOR MODAL -->
   <div class="modal-overlay" id="vendorModal" onclick="overlayClose(event,'vendorModal')">
-    <div class="modal form-modal">
-      <button class="modal-close" onclick="closeModal('vendorModal')">✕</button>
-      <h3>🏪 Become a Vendor</h3>
-      <p class="modal-sub">Join BoloKart and grow across 20 villages</p>
-      <div class="form-fields">
-        <input type="text" placeholder="Store Name" class="form-inp" />
-        <input type="text" placeholder="Owner Name" class="form-inp" />
-        <input type="tel" placeholder="WhatsApp Number" class="form-inp" />
-        <input type="text" placeholder="Village / Location" class="form-inp" />
-        <select class="form-inp">
-          <option>Select Store Type</option>
+    <div class="modal"><button class="modal-x" onclick="closeModal('vendorModal')">✕</button>
+      <h3>🏪 Register Your Store</h3>
+      <p class="modal-sub">Join BoloKart vendor network</p>
+      <div class="form-stack">
+        <input type="text" placeholder="Store Name" class="form-field" />
+        <input type="text" placeholder="Owner Name" class="form-field" />
+        <input type="tel" placeholder="Mobile Number" class="form-field" />
+        <input type="text" placeholder="Village / Location" class="form-field" />
+        <select class="form-field">
+          <option value="">Store Type</option>
           <option>Kirana Store</option>
-          <option>Supermarket</option>
+          <option>Grocery Shop</option>
           <option>Pharmacy</option>
-          <option>Bakery</option>
         </select>
-        <button class="btn-primary fw" onclick="submitForm('vendorModal')">Submit Application</button>
+        <button class="btn-green-fw" onclick="submitForm('vendorModal')">Submit Application</button>
       </div>
     </div>
   </div>
 
-  <!-- ══ RIDER MODAL ══ -->
+  <!-- RIDER MODAL -->
   <div class="modal-overlay" id="riderModal" onclick="overlayClose(event,'riderModal')">
-    <div class="modal form-modal">
-      <button class="modal-close" onclick="closeModal('riderModal')">✕</button>
+    <div class="modal"><button class="modal-x" onclick="closeModal('riderModal')">✕</button>
       <h3>🛵 Join as Rider</h3>
-      <p class="modal-sub">Earn ₹500–₹800/day with flexible hours</p>
-      <div class="form-fields">
-        <input type="text" placeholder="Full Name" class="form-inp" />
-        <input type="tel" placeholder="WhatsApp Number" class="form-inp" />
-        <input type="text" placeholder="Village / Location" class="form-inp" />
-        <select class="form-inp">
-          <option>Select Zone</option>
-          <option>Zone A – Srikund (Nadim)</option>
-          <option>Zone B – Kankjol (Umar)</option>
-          <option>Zone C – Islampur (Imran)</option>
+      <p class="modal-sub">Earn ₹500–₹800/day</p>
+      <div class="form-stack">
+        <input type="text" placeholder="Full Name" class="form-field" />
+        <input type="tel" placeholder="Mobile Number" class="form-field" />
+        <input type="text" placeholder="Village / Location" class="form-field" />
+        <select class="form-field">
+          <option value="">Select Zone</option>
+          <option>Zone A – Srikund</option>
+          <option>Zone B – Kankjol</option>
+          <option>Zone C – Islampur</option>
         </select>
-        <select class="form-inp">
-          <option>Vehicle Type</option>
+        <select class="form-field">
+          <option value="">Vehicle Type</option>
           <option>Bicycle</option>
           <option>Motorcycle</option>
           <option>Scooter</option>
         </select>
-        <button class="btn-primary fw" onclick="submitForm('riderModal')">Apply Now</button>
+        <button class="btn-green-fw" onclick="submitForm('riderModal')">Apply Now</button>
       </div>
     </div>
   </div>
 
-  <!-- ══ TOAST ══ -->
-  <div class="toast-msg" id="toast"></div>
+  <!-- APP MODAL -->
+  <div class="modal-overlay" id="appModal" onclick="overlayClose(event,'appModal')">
+    <div class="modal modal-center"><button class="modal-x" onclick="closeModal('appModal')">✕</button>
+      <div class="app-eyebrow">GET THE APP</div>
+      <h2>Faster. Easier. Smarter.</h2>
+      <p class="modal-sub">Get 20% off on your first app order</p>
+      <div class="am-code-badge">Use Code: <strong>BK20</strong></div>
+      <div class="am-store-row">
+        <a href="#" class="am-store-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3.18 23.86c.41.23.87.27 1.32.1L14.3 12 4.5.04c-.45-.17-.91-.13-1.32.1-.84.47-1.18 1.4-1.18 2.64v18.44c0 1.24.34 2.17 1.18 2.64z" />
+          </svg>
+          <div><small>GET IT ON</small><strong>Google Play</strong></div>
+        </a>
+        <a href="#" class="am-store-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.27.06 2.15.62 2.9.63.85-.18 1.7-.76 3.07-.64 1.73.15 3.04.93 3.78 2.37-3.37 1.9-2.83 6.12.19 7.59-.62 1.39-1.21 2.74-1.94 2.93z" />
+          </svg>
+          <div><small>Download on the</small><strong>App Store</strong></div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <script src="./assets/js/app.js"></script>
+  <div class="toast-notif" id="toast"></div>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
